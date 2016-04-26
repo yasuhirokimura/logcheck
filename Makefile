@@ -75,7 +75,7 @@ clean:
 	-rmdir $(DESTDIR)/$(CONFDIR)
 
 distclean:
-	-find . -name "*~" | xargs -r --no-run-if-empty rm -vf
+	-find . -name "*~" | xargs --no-run-if-empty rm -vf
 
 check:
 	#cd test; python test.py
