@@ -10,6 +10,7 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
     - add generic preauth disconnect rule (closes: #775090)
     - adjust 'Bad protocol version identification' rule, thanks to Paul
       for the patch (closes: #703936)
+    - allow new FingerprintHash format (closes: #799304)
   * ignore.d.server/su:
     - allow '.' and '_' in username (closes: #780441)
   * ignore.d.server/rsync:
