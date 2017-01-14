@@ -1,5 +1,8 @@
 logcheck (1.3.18) UNRELEASED; urgency=medium
 
+  * src/logcheck:
+    - fix check if rule files are unreadable, thanks to Simon Ruderich
+      for the patch (closes: #418147)
   * src/logcheck-test:
     - make mktemp usage more portable
   * Makefile:

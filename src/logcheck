@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2004-2012,2014 Debian Logcheck Team
-#                              <logcheck-devel@alioth.lists.debian.org>
-# Copyright (C) 2002,2003      Jonathan Middleton <jjm@ixtab.org.uk>
-# Copyright (C) 1999-2002      Rene Mayrhofer <rmayr@debian.org>
-# Copyright (C) 1996-1997      Craig Rowland <crowland@psionic.com>
+# Copyright (C) 2004-2012,2014,2017 Debian Logcheck Team
+#                                   <logcheck-devel@alioth.lists.debian.org>
+# Copyright (C) 2002,2003           Jonathan Middleton <jjm@ixtab.org.uk>
+# Copyright (C) 1999-2002           Rene Mayrhofer <rmayr@debian.org>
+# Copyright (C) 1996-1997           Craig Rowland <crowland@psionic.com>
 
 # This file is part of Logcheck
 
@@ -215,18 +215,21 @@ cleanrules() {
 	    mkdir "$cleaned" \
 	        || error "Could not make dir $cleaned for cleaned rulefiles."
 	fi
+	# run-parts doesn't include files which are not readable. Use this
+	# separate check to correctly report unreadable files.
+	for x in "$dir"/*; do
+		if [ -f "$x" ] && [ ! -r "$x" ]; then
+			error "Couldn't read $x"
+		fi
+	done
 	for rulefile in $(run-parts --list "$dir"); do
 	    rulefile="$(basename "$rulefile")"
 	    if [ -f "${dir}/${rulefile}" ]; then
 		debug "cleanrules: ${dir}/${rulefile}"
-		if [ -r "${dir}/${rulefile}" ]; then
-			# pipe to cat on greps to get usable exit status
-			egrep --text -v '^[[:space:]]*$|^#' "$dir/$rulefile" | cat \
-				>> "$cleaned/$rulefile" \
-			|| error "Couldn't append to $cleaned/$rulefile."
-		else
-			error "Couldn't read $dir/$rulefile"
-		fi
+		# pipe to cat on greps to get usable exit status
+		egrep --text -v '^[[:space:]]*$|^#' "$dir/$rulefile" | cat \
+			>> "$cleaned/$rulefile" \
+		|| error "Couldn't append to $cleaned/$rulefile."
 	    fi
 	done
     elif [ -f "$dir" ]; then
