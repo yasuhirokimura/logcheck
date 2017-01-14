@@ -12,6 +12,8 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
       for the patch (closes: #703936)
   * ignore.d.server/su:
     - allow '.' and '_' in username (closes: #780441)
+  * ignore.d.server/rsync:
+    - allow comma as thousands separator (LP: #1476199)
   * debian/control:
    - add alternate dependency on cron-daemon, thanks to Felix Zielcke for the
      patch (closes: #786815)
