@@ -8,6 +8,8 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
     - rewrite rules (LP: #1357880, closes: #809605)
   * ignore.d.server/ssh:
     - add generic preauth disconnect rule (closes: #775090)
+    - adjust 'Bad protocol version identification' rule, thanks to Paul
+      for the patch (closes: #703936)
   * ignore.d.server/su:
     - allow '.' and '_' in username (closes: #780441)
 
