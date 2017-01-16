@@ -23,6 +23,7 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
   * debian/control:
    - add alternate dependency on cron-daemon, thanks to Felix Zielcke for the
      patch (closes: #786815)
+  * debian/copyright: update copyright year to 2017
   * Replace all occurrences of 'deinstall' with 'uninstall', thanks to duelle
     for the patch
 
