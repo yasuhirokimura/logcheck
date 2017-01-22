@@ -4,7 +4,6 @@ logcheck for Debian
 Resources
 ~~~~~~~~~
 Homepage: http://logcheck.alioth.debian.org/
-Wiki: http://wiki.logcheck.org/
 Lists: http://logcheck.alioth.debian.org/lists.html
 
 Configuration
@@ -47,7 +46,7 @@ Getting the source/contributing
 The Debian logcheck package is now maintained with git:
   git://git.debian.org/git/logcheck/logcheck.git
 
-Also see: http://www.logcheck.org/git.html
+Also see: http://logcheck.alioth.debian.org/git.html
 
  -- martin f. krafft <madduck@debian.org>  Sun, 09 Jul 2006 14:06:04 +0200
 
