@@ -22,3 +22,5 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: zone [^[:space:]]+/IN: sending notifies \(serial [[:digit:]]+\)$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: zone [^[:space:]]+: transferred serial [[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: zone transfer \(AXFR\) of [^[:space:]]+ to [^[:space:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: zone [._[:alnum:]-]+/IN \(signed\): reconfiguring zone keys$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: zone [._[:alnum:]-]+/IN \(signed\): next key event: [[:digit:]]{2}-\w{3}-[[:digit:]]{4} [.:[:digit:]]{12}$
