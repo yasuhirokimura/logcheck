@@ -21,9 +21,10 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
   * ignore.d.server/rsync:
     - allow comma as thousands separator (LP: #1476199)
   * debian/control:
-   - add alternate dependency on cron-daemon, thanks to Felix Zielcke for the
-     patch (closes: #786815)
-   - use secure Vcs-* fields
+    - add alternate dependency on cron-daemon, thanks to Felix Zielcke for the
+      patch (closes: #786815)
+    - use secure Vcs-* fields
+    - bump to Standards-Version 3.9.8 (no changes necessary)
   * debian/copyright: update copyright year to 2017
   * Add support for logcheck.logfiles.d, thanks to Vincas Dargis for
     the initial patch (closes: #481353)
