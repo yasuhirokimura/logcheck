@@ -38,6 +38,8 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
     - match arbitrary mtu sizes (closes: #815755)
   * ignore.d.server/snmpd:
     - match optional port (closes: #644886)
+  * ignore.d.server/postfix:
+    - remove obsolete rule (closes: #822165)
   * debian/control:
     - add alternate dependency on cron-daemon, thanks to Felix Zielcke for the
       patch (closes: #786815)
