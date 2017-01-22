@@ -149,6 +149,13 @@ manpage.1: manpage.sgml
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term><option>-D DIR</option>
+        </term>
+        <listitem>
+          <para>Overrule default logfiles lists directory</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term><option>-m</option>
         </term>
         <listitem>
@@ -239,6 +246,7 @@ manpage.1: manpage.sgml
 
     <para>/etc/logcheck/logcheck.conf is the main configuration file.</para>
     <para>/etc/logcheck/logcheck.logfiles is the list of files to monitor.</para>
+    <para>/etc/logcheck/logcheck.logfiles.d is the directory of lists of files to monitor.</para>
     <para>/usr/share/doc/logcheck-database/README.logcheck-database.gz for hints on how to write, test and maintain rules.</para>
   </refsect1>
   <refsect1>

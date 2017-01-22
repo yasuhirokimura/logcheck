@@ -23,6 +23,7 @@ install:
 	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/cracking.ignore.d
 	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/violations.d
 	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/violations.ignore.d
+	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d
 
 	# Install the scripts
 	install -m 755 src/logcheck $(DESTDIR)/$(SBINDIR)/
@@ -68,6 +69,7 @@ clean:
 	-rm -rf $(DESTDIR)/$(CONFDIR)/violations.d/
 	-rm -rf $(DESTDIR)/$(CONFDIR)/violations.ignore.d/
 	-rm -rf $(DESTDIR)/$(CONFDIR)/cracking.d/
+	-rm -rf $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d/
 	# Remove the statedir and it's contents
 	-rm -rf $(DESTDIR)/var/lib/logcheck
 

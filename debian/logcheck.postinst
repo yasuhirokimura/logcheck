@@ -80,6 +80,7 @@ case "$1" in
         chmod 2750 /etc/logcheck/cracking.ignore.d || true
         chmod 2750 /etc/logcheck/violations.d || true
         chmod 2750 /etc/logcheck/violations.ignore.d || true
+        chmod 2750 /etc/logcheck/logcheck.logfiles.d || true
         chmod -R g+rX /etc/logcheck || true
     fi
     chown -R logcheck:logcheck /var/lib/logcheck || true

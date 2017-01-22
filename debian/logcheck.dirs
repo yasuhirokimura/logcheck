@@ -6,3 +6,4 @@
 /etc/logcheck/cracking.ignore.d
 /etc/logcheck/violations.d
 /etc/logcheck/violations.ignore.d
+/etc/logcheck/logcheck.logfiles.d

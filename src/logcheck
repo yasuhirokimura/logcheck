@@ -73,6 +73,7 @@ RULEDIR="/etc/logcheck"
 CONFFILE="/etc/logcheck/logcheck.conf"
 STATEDIR="/var/lib/logcheck"
 LOGFILES_LIST="/etc/logcheck/logcheck.logfiles"
+LOGFILES_LIST_D="/etc/logcheck/logcheck.logfiles.d"
 LOGFILE_FALLBACK="/var/log/syslog"
 LOGTAIL="/usr/sbin/logtail2"
 CAT="/bin/cat"
@@ -447,7 +448,7 @@ logoutput() {
 usage() {
     debug "usage: Printing usage and exiting"
     cat<<EOF
-usage: logcheck [-c CFG] [-d] [-h] [-H HOST] [-l LOG] [-L CFG] [-m MAIL] [-o]
+usage: logcheck [-c CFG] [-d] [-h] [-H HOST] [-l LOG] [-L CFG] [-D DIR] [-m MAIL] [-o]
                 [-r DIR] [-s|-p|-w] [-R] [-S DIR] [-t] [-T] [-u]
  -c CFG       = override default configuration file
  -d           = debug mode
@@ -455,6 +456,7 @@ usage: logcheck [-c CFG] [-d] [-h] [-H HOST] [-l LOG] [-L CFG] [-m MAIL] [-o]
  -H HOST      = use this hostname in the subject of any generated mail
  -l LOG       = check the specified logfile
  -L CFG       = override default logfiles list
+ -D DIR       = override default logfiles lists directory
  -m MAIL      = send the report to the specified recipient
  -o           = send the report to stdout, no mail will be sent
  -p           = use the "paranoid" runlevel
@@ -555,6 +557,10 @@ while getopts "$GETOPTS" opt; do
 	L)
 	    debug "Setting LOGFILES_LIST to $OPTARG"
 	    LOGFILES_LIST="$OPTARG"
+	    ;;
+	D)
+	    debug "Setting LOGFILES_LIST_D to $OPTARG"
+	    LOGFILES_LIST_D="$OPTARG"
 	    ;;
 	m)
 	    debug "Setting SENDMAILTO to $OPTARG"
@@ -664,10 +670,17 @@ fi
 # Handle log rotation correctly, idea taken from Wiktor Niesiobedzki.
 mkdir "$TMPDIR/logoutput" \
     || error "Could not mkdir for log files"
-if [ ! "$LOGFILE" ] && [ -r "$LOGFILES_LIST" ]; then
+LOGFILES=$(ls -1d "$LOGFILES_LIST" "$LOGFILES_LIST_D"/*.logfiles 2>/dev/null)
+if [ ! "$LOGFILE" ] && [ -n "$LOGFILES" ]; then
     SAVEIFS=$IFS; IFS=$(echo -en "\n\b");
-    for file in $(egrep --text -v "(^#|^[[:space:]]*$)" "$LOGFILES_LIST"); do
-	logoutput "$file"
+    for file_list in ${LOGFILES} ; do
+        if [ -f  "$file_list" ] ; then
+            for file in $(egrep --text -v -h "(^#|^[[:space:]]*$)" "$file_list"); do
+                logoutput "$file"
+            done
+        else
+            error "$file_list is not a regular file"
+        fi
     done
     IFS=$SAVEIFS
 elif [ "$LOGFILE" ]; then
