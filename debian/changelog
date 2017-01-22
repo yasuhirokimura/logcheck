@@ -31,6 +31,9 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
     - match predictable network interface names
   * violations.ignore.d/logcheck-sudo:
     - match 'GROUP=' field (closes: #815114)
+  * ignore.d.server/bind:
+    - match domain name in query message, thanks to Wojciech Nizinski
+      for the patch
   * debian/control:
     - add alternate dependency on cron-daemon, thanks to Felix Zielcke for the
       patch (closes: #786815)

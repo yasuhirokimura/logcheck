@@ -1,6 +1,6 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: FORMERR resolving '[^[:space:]]+': [.:[:xdigit:]]+#[[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: client [.:[:xdigit:]]+#[[:digit:]]+: updating zone '[-._[:alnum:]]+/IN': (adding an RR|deleting rrset) at '[._[:alnum:]-]+' A$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: client [[:digit:].]+#[[:digit:]]+: query (\(cache\) )?'.*' denied$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: client [[:digit:].]+#[[:digit:]]+( \([._[:alnum:]-]+\))?: query (\(cache\) )?'.*' denied$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: dispatch 0x[[:xdigit:]]+: shutting down due to TCP receive error: [.:[:xdigit:]]+#[[:digit:]]+: connection reset$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: enforced delegation-only for '[._[:alnum:]-]+' \([._[:alnum:]-]+/(A|AAAA)/IN\) from [.:[:xdigit:]]+#[[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ named\[[[:digit:]]+\]: journal file [-./_[:alnum:]]+ does not exist, creating it$
