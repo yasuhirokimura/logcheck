@@ -44,6 +44,9 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
     - remove obsolete rule (closes: #822165)
   * ignore.d.server/systemd-timesyncd: new
     - match 'interval/delta/delay/jitter/drift' message
+  * ignore.d.server/kernel:
+    - 'TCP: ' prefix is optional, thanks to Xavier Mehrenberger
+       for the patch (closes: #797512)
   * debian/control:
     - add alternate dependency on cron-daemon, thanks to Felix Zielcke for the
       patch (closes: #786815)
