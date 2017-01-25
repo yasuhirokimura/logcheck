@@ -17,6 +17,7 @@ logcheck (1.3.18) UNRELEASED; urgency=medium
       Paul Brossier for the patch (closes: #703936)
     - allow new FingerprintHash format (closes: #799304)
     - match 'ED25519' key type, thanks to Ayke van Laethem for the patch
+    - match more disconnect messages
   * ignore.d.server/su:
     - allow '.' and '_' in username (closes: #780441)
   * ignore.d.server/rsync:
