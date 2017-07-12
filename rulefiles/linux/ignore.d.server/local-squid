@@ -1,0 +1,2 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: Logfile: (open|clos)ing log stdio:/var/log/squid/netdb.state
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: NETDB state saved; [[:digit:]]+ entries, [[:digit:]]+ msec
