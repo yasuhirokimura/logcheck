@@ -1,0 +1,2 @@
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postfix/smtpd\[[[:digit:]]+\]: disconnect from [._[:alnum:]-]+\[([.[:digit:]]+|[:[:xdigit:]]+)\]
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postfix/smtpd\[[[:digit:]]+\]: [[:xdigit:]]+: client=[._[:alnum:]-]+\[([.[:digit:]]+|[:[:xdigit:]]+)\], orig_queue_id=[[:xdigit:]]+, orig_client=[._[:alnum:]-]+\[([.[:digit:]]+|[:[:xdigit:]]+)\]
