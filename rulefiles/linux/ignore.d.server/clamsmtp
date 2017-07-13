@@ -1,2 +1,2 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ clamsmtpd: [[:alnum:]]+: accepted connection from:
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ clamsmtpd: [[:alnum:]]+: from=[^[:space:]]+, to=[^[:space:]]+, status=CLEAN
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ clamsmtpd: [[:alnum:]]+: from=[^[:space:]]+(, to=[^[:space:]]+)+, status=CLEAN
