@@ -1,1 +1,3 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ clamd\[[[:digit:]]+\]: SelfCheck: Database status OK.
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ clamd\[[[:digit:]]+\]: Reading databases from /var/db/clamav
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ clamd\[[[:digit:]]+\]: Database correctly reloaded \([[:digit:]]+ signatures\)
