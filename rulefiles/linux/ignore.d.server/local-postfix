@@ -3,3 +3,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postfix/smtpd\[[[:digit:]]+\]: warning: hostname [._[:alnum:]-]+ does not resolve to address ([.[:digit:]]+|[:[:xdigit:]]+)(: hostname nor servname provided, or not known)?
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postfix/submission/smtpd\[[[:digit:]]+\]: lost connection after STARTTLS from [._[:alnum:]-]+\[([.[:digit:]]+|[:[:xdigit:]]+)\]
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postfix/submission/smtpd\[[[:digit:]]+\]: [[:alnum:]]+: client=[^[:space:]]+, sasl_method=[-[:alnum:]]+, sasl_username=[-_.@[:alnum:]]+$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postfix/cleanup\[[[:digit:]]+\]: [[:alnum:]]+: message-id=<?[^<]+>?
