@@ -3,4 +3,6 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (main|daily|bytecode)\.cld is up to date \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Downloading daily-[[:digit:]]+.cdiff \[100%\]
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (main|daily|bytecode)\.cld updated \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Database updated \([[:digit:]]+ signatures\) from [._[:alnum:]-]+ \(IP: ([.[:digit:]]+|[:[:xdigit:]]+)\)
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Clamd successfully notified about the update.
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: --------------------------------------
