@@ -2,3 +2,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Disconnected from ([.[:digit:]]+|[:[:xdigit:]]+) port [[:digit:]]+ \[preauth\]
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Disconnecting: Too many authentication failures \[preauth\]$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: Connection closed by ([.[:digit:]]+|[:[:xdigit:]]+) port [[:digit:]]+ \[preauth\]
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ sshd\[[[:digit:]]+\]: error: maximum authentication attempts exceeded for invalid user [[:alnum:]]+ from ([.[:digit:]]+|[:[:xdigit:]]+) port [[:digit:]]+ ssh2 \[preauth\]
