@@ -1,4 +1,4 @@
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postgrey\[[[:digit:]]+\]: action=pass, reason=client whitelist, client_name=[._[:alnum:]-]+, client_address=([.[:digit:]]+|[:[:xdigit:]]+), sender=[^[:space:]]+, recipient=[^[:space:]]+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postgrey\[[[:digit:]]+\]: action=pass, reason=client whitelist, client_name=[._[:alnum:]-]+, client_address=([.[:digit:]]+|[:[:xdigit:]]+)(, sender=[^[:space:]]+)?, recipient=[^[:space:]]+
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postgrey\[[[:digit:]]+\]: cleaning up old logs\.\.\.
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postgrey\[[[:digit:]]+\]: cleaning up old entries\.\.\.
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ postgrey\[[[:digit:]]+\]: cleaning (main|clients) database finished. before: [[:digit:]]+, after: [[:digit:]]+
