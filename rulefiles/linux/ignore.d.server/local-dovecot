@@ -6,4 +6,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: imap\([-_.@[:alnum:]]+\): sieve: pipe action: piped message to program `learn-spam'
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: imap\([-_.@[:alnum:]]+\): sieve: left message in mailbox '[.[:alnum:]]+'
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)\([-_.@[:alnum:]]+\): Disconnected for inactivity in=[[:digit:]]+ out=[[:digit:]]+
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)-login: Disconnected \(no auth attempts in [[:digit:]]+ secs\): user=<[-_.@[:alnum:]]*>, rip=[.:[:xdigit:]]+, lip=[.:[:xdigit:]]+(, TLS)?, session=<[[:alnum:]]+>
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)-login: Disconnected(: Inactivity)? \(no auth attempts in [[:digit:]]+ secs\): user=<[-_.@[:alnum:]]*>, rip=[.:[:xdigit:]]+, lip=[.:[:xdigit:]]+(, TLS)?, session=<[[:alnum:]]+>
