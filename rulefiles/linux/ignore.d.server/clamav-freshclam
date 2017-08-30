@@ -1,6 +1,6 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Received signal: wake up
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: ClamAV update process started at \w{3} \w{3} [ :[:digit:]]{11} [[:digit:]]{4}
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (main|daily|bytecode)\.cld is up to date \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (main|daily|bytecode)\.c[lv]d is up to date \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Trying host [._[:alnum:]-]+ \(([.[:digit:]]+|[:[:xdigit:]]+)\)...
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Downloading (daily|bytecode)-[[:digit:]]+\.cdiff \[100%\]
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (main|daily|bytecode)\.cld updated \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
