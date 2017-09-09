@@ -1,6 +1,6 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)-login: Login: user=<[-_.@[:alnum:]]+>, method=[[:alnum:]-]+, rip=[.:[:xdigit:]]+, lip=[.:[:xdigit:]]+(, (TLS( handshake)?|secured))?
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)\([-_.@[:alnum:]]+\): Logged out in=[[:digit:]]+ out=[[:digit:]]+
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: lda\([-_.@[:alnum:]]+\): sieve: msgid=[^[:space:]]+[[:space:]]*: stored mail into mailbox '[^[:space:]]+'
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: lda\([-_.@[:alnum:]]+\): sieve: msgid=.*: stored mail into mailbox '[^[:space:]]+'
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)\([-_.@[:alnum:]]+\): Connection closed \([[:upper:][:space:]]+ finished [.[:digit:]]+ secs ago\) in=[[:digit:]]+ out=[[:digit:]]+
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: imap\([-_.@[:alnum:]]+\): sieve: pipe action: piped message to program `learn-ham'
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: imap\([-_.@[:alnum:]]+\): sieve: pipe action: piped message to program `learn-spam'
