@@ -429,20 +429,35 @@ cleanchecked() {
 
 # Get the yet unseen part of one logfile.
 logoutput() {
-    file="$1"
+	file="$1"
+	JOURNALCTL="journalctl"
+	JOURNALCTL_OPTS=""
 
-    # There are some problems with this section.
-    debug "logoutput called with file: $file"
-    if [ -f "$file" ]; then
-	offsetfile="$STATEDIR/offset$(echo "$file" | tr / .)"
-	debug "Running $LOGTAIL on $file"
-	$LOGTAIL $LOGTAIL_OPTS -f "$file" -o "$offsetfile" \
-	    >> "$TMPDIR/logoutput/$(basename "$file")" 2>&1 \
-	    || error "Could not run logtail or save output"
-    else
-	echo "E: File could not be read: $file" >> "$TMPDIR/errors" \
-	    || error "Could not output to $TMPDIR/errors."
-    fi
+	# There are some problems with this section.
+	debug "logoutput called with file: $file"
+	if [ -f "$file" ]; then
+		offsetfile="$STATEDIR/offset$(echo "$file" | tr / .)"
+		debug "Running $LOGTAIL on $file"
+		$LOGTAIL $LOGTAIL_OPTS -f "$file" -o "$offsetfile" \
+		    >> "$TMPDIR/logoutput/$(basename "$file")" 2>&1 \
+		    || error "Could not run logtail or save output"
+	else
+		if [ $file == "journal" ] && [ -x "$(command -v $JOURNALCTL)" ]; then
+			offsetfile="$STATEDIR/offset.$file"
+			offsettime=""
+			if [ -f "$offsetfile" ]; then
+				offsettime="--since=@$(stat -c %Y $offsetfile)"
+			fi
+			debug "Running $JOURNALCTL $JOURNALCTL_OPTS -q $offsettime"
+			$JOURNALCTL $JOURNALCTL_OPTS -q $offsettime \
+			    >> "$TMPDIR/logoutput/$file" 2>&1 \
+			    || error "Could not run journalctl or save output"
+			touch $offsetfile
+		else
+			echo "E: File could not be read: $file" >> "$TMPDIR/errors" \
+			    || error "Could not output to $TMPDIR/errors."
+		fi
+	fi
 }
 
 # Show all the cli options to our users.
