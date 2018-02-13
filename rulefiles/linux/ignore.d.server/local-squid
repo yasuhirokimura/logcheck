@@ -1,2 +1,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: Logfile: (open|clos)ing log stdio:/var/log/squid/netdb.state
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: NETDB state saved; [[:digit:]]+ entries, [[:digit:]]+ msec
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: local=([.[:digit:]]+|[:[:xdigit:]]+):[[:digit:]]+ remote=([.[:digit:]]+|[:[:xdigit:]]+):[[:digit:]]+ FD [[:digit:]]+ flags=[[:digit:]]+: read/write failure: \([[:digit:]]+\) Broken pipe
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: local=([.[:digit:]]+|[:[:xdigit:]]+):[[:digit:]]+ remote=([.[:digit:]]+|[:[:xdigit:]]+):[[:digit:]]+ FD [[:digit:]]+ flags=[[:digit:]]+: read/write failure: \([[:digit:]]+\) Operation timed out
