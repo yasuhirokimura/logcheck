@@ -1,0 +1,1 @@
+^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: XMT: Solicit on eth[[:digit:]]+, interval [[:digit:]]+ms\.$
