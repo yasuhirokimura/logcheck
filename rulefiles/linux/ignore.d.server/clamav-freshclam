@@ -1,10 +1,7 @@
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Received signal: wake up
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: ClamAV update process started at \w{3} \w{3} [ :[:digit:]]{11} [[:digit:]]{4}
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (main|daily|bytecode)\.c[lv]d is up to date \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Trying host [._[:alnum:]-]+ \(([.[:digit:]]+|[:[:xdigit:]]+)\)...
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Incremental update failed, trying to download daily.cvd
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Downloading (daily|bytecode)(-[[:digit:]]+\.cdiff|.cvd) \[100%\]
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (main|daily|bytecode)\.c[lv]d updated \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Database updated \([[:digit:]]+ signatures\) from [._[:alnum:]-]+ \(IP: ([.[:digit:]]+|[:[:xdigit:]]+)\)
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Clamd successfully notified about the update.
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: --------------------------------------
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ freshclam\[[0-9]+\]: ClamAV update process started at .*$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ freshclam\[[0-9]+\]: Received signal: (wake up|re-opening log file)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ freshclam\[[0-9]+\]: (daily|main)\.c(l|v)d (is up to date|updated) \(version: [0-9]+, sigs: [0-9]+, f-level: [0-9]+, builder: \w+\)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ freshclam\[[0-9]+\]: Clamd successfully notified about the update\.$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ freshclam\[[0-9]+\]: --------------------------------------$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ freshclam\[[0-9]+\]: Database updated \([0-9]+ signatures\) from .* \(IP: [0-9.]+\)$
+^\w{3} [ :0-9]{11} [._[:alnum:]-]+ freshclam\[[0-9]+\]: Downloading daily-[0-9]+.cdiff \[100%\] ?$
