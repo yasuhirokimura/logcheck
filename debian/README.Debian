@@ -1,11 +1,6 @@
 logcheck for Debian
 -------------------
 
-Resources
-~~~~~~~~~
-Homepage: http://logcheck.alioth.debian.org/
-Lists: http://logcheck.alioth.debian.org/lists.html
-
 Configuration
 ~~~~~~~~~~~~~
 Logcheck configuration is done in the file /etc/logcheck/logcheck.conf.
@@ -46,7 +41,6 @@ Getting the source/contributing
 The Debian logcheck package is now maintained with git:
   git://git.debian.org/git/logcheck/logcheck.git
 
-Also see: http://logcheck.alioth.debian.org/git.html
+Also see: README.source
 
  -- martin f. krafft <madduck@debian.org>  Sun, 09 Jul 2006 14:06:04 +0200
-
