@@ -35,6 +35,6 @@ Debian.
 Getting the source/contributing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The Debian logcheck package is now maintained with git:
-  git://salsa.debian.org/debian/logcheck.git
+  https://salsa.debian.org/debian/logcheck.git
 
 Also see: README.source
