@@ -1,19 +1,17 @@
 Logcheck - git
 
 The logcheck git repository is available via for online browsing:
-<http://git.debian.org/?p=logcheck/logcheck.git;a=summary>
+<https://salsa.debian.org/debian/logcheck>
 
 To obtain the source, you clone it:
 
-git clone git://git.debian.org/git/logcheck/logcheck.git
-# or the webpage sources:
-git clone git://git.debian.org/git/logcheck/web.git
+git clone https://salsa.debian.org/debian/logcheck.git
 
 To submit patches, please follow this document:
 <http://repo.or.cz/w/git.git?a=blob;f=Documentation/SubmittingPatches;hb=HEAD>
 
-And send your patches via email to the logcheck-devel mailing list:
-<http://lists.alioth.debian.org/mailman/listinfo/logcheck-devel>
+And send your patches via email to the Debian BTS:
+<https://bugs.debian.org/cgi-bin/pkgreport.cgi?src=logcheck>
 
 First, the setup, which you only have to do once on each machine you work
 with:
@@ -25,7 +23,7 @@ git config --global user.email 'your@email.address'
 # your own email address.
 git config sendemail.signedoffcc false
 git config sendemail.suppressfrom true
-git clone git://git.debian.org/git/logcheck/logcheck.git
+git clone https://salsa.debian.org/debian/logcheck.git
 
 To prepare the actual patch, do the following:
 
@@ -49,10 +47,7 @@ git merge --squash some-name-identifying-my-work
 git commit // ... remove the "Squashed commit of the following:" leader
 git format-patch -M -s master
 // now inspect the files this created in $PWD
-// when you're ready to submit, do:
-git send-email --to your@email.address
-// check that it's okay when it arrives
-git send-email --to logcheck-devel@lists.alioth.debian.org
+// check that it's okay and send the patch to Debian BTS
 
 For multiple logical changes, cherry-pick or squash-merge every commit
 belonging to a change to the integration branch and then commit it.

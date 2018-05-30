@@ -53,6 +53,4 @@ see if we have included them first.  If we already have rules and you
 would like to maintain your own, please let us know before you upload
 so we can avoid filename conflicts.
 
--- Debian Logcheck Team <logcheck-devel@lists.alioth.debian.org>
-
 # vim:tw=70

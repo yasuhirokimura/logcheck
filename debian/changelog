@@ -6,8 +6,8 @@ logcheck (1.3.19) UNRELEASED; urgency=medium
     - bump to Standards-Version 4.1.4 (no changes necessary)
     - update Maintainer field (closes: #899934)
   * debian/compat:
-    - bumped to dh compatibility level 11
-  * Remove references to 'logcheck.alioth.debian.org'
+    - bump to dh compatibility level 11
+  * Remove references to alioth.debian.org
   * Update debian/README.Debian
 
  -- Hannes von Haugwitz <hannes@vonhaugwitz.com>  Sun, 13 May 2018 11:15:19 +0200

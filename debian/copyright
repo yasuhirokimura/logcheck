@@ -1,5 +1,5 @@
 This package is a native Debian package.  It is currently maintained
-by the Debian Logcheck team <logcheck-devel@lists.alioth.debian.org>
+by the Debian Logcheck team <logcheck@packages.debian.org>
 consisting of:
 
 	Todd Troxell <ttroxell@debian.org>
@@ -13,8 +13,8 @@ consisting of:
 	Hannes von Haugwitz <hannes@vonhaugwitz.com>
 	Jeremy L. Gaddis <jlgaddis@gnu.org>
 
-The project is currently hosted on Alioth at:
-http://alioth.debian.org/projects/logcheck/
+The project is currently hosted on salsa.debian.org at:
+https://salsa.debian.org/debian/logcheck
 
 Please read the following mails and subsequent threads:
 http:///lists.debian.org/debian-devel/2001/debian-devel-200102/msg01235.html
@@ -24,8 +24,8 @@ as well as the 'CHANGES' file.
 
 Copyright:
 
- Copyright (C) 2004-2017 Debian Logcheck Team
-                         <logcheck-devel@lists.alioth.debian.org>
+ Copyright (C) 2004-2018 Debian Logcheck Team
+                         <logcheck@packages.debian.org>
  Copyright (C) 2003      Steve Kemp <skx@debian.org>
  Copyright (C) 2002,2003 Jonathan Middleton <jjm@ixtab.org.uk>
  Copyright (C) 1999-2002 Rene Mayrhofer <rmayr@debian.org>
