@@ -152,7 +152,7 @@ manpage.1: manpage.sgml
         <term><option>-D DIR</option>
         </term>
         <listitem>
-          <para>Overrule default logfiles lists directory</para>
+          <para>Overrule default logfiles lists directory.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
