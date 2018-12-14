@@ -4,4 +4,4 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Downloading bytecode(-[[:digit:]]+\.cdiff|.cvd) \[100%\]
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (WARNING: )?Your ClamAV installation is OUTDATED!
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (WARNING: )?Local version: [.[:digit:]]+ Recommended version: [.[:digit:]]+
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: DON'T PANIC! Read http://www.clamav.net/documents/upgrading-clamav
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: DON'T PANIC! Read https://www.clamav.net/documents/upgrading-clamav
