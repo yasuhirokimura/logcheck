@@ -1,7 +1,7 @@
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: bytecode\.c[lv]d (is up to date|updated) \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Trying host [._[:alnum:]-]+ \(([.[:digit:]]+|[:[:xdigit:]]+)\)...
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Incremental update failed, trying to download daily.cvd
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: Downloading bytecode(-[[:digit:]]+\.cdiff|.cvd) \[100%\]
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (WARNING: )?Your ClamAV installation is OUTDATED!
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: (WARNING: )?Local version: [.[:digit:]]+ Recommended version: [.[:digit:]]+
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]: DON'T PANIC! Read https://www.clamav.net/documents/upgrading-clamav
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? bytecode\.c[lv]d (is up to date|updated) \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Trying host [._[:alnum:]-]+ \(([.[:digit:]]+|[:[:xdigit:]]+)\)...
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Incremental update failed, trying to download daily.cvd
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Downloading bytecode(-[[:digit:]]+\.cdiff|.cvd) \[100%\]
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (WARNING: )?Your ClamAV installation is OUTDATED!
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (WARNING: )?Local version: [.[:digit:]]+ Recommended version: [.[:digit:]]+
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? DON'T PANIC! Read https://www.clamav.net/documents/upgrading-clamav
