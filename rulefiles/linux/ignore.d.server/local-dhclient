@@ -1,1 +1,4 @@
 ^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: XMT: Solicit on eth[[:digit:]]+, interval [[:digit:]]+ms\.$
+^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: PRC: Renewing lease on [[:alnum:]]+.
+^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: XMT: Renew on [[:alnum:]]+, interval [[:digit:]]+ms.
+^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: RCV: Reply message on [[:alnum:]]+ from [[:xdigit:]:.]+.
