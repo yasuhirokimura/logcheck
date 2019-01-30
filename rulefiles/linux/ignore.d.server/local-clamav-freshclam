@@ -4,7 +4,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Trying host [._[:alnum:]-]+ \(([.[:digit:]]+|[:[:xdigit:]]+)\)...
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Incremental update failed, trying to download daily.cvd
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Downloading (bytecode|daily)(-[[:digit:]]+\.cdiff|.cvd) \[100%\]
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Database updated \([0-9]+ signatures\) from .* \(IP: [0-9.]+\)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Database updated \([0-9]+ signatures\) from .* \(IP: [[:xdigit:].:]+\)$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Clamd successfully notified about the update\.$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (WARNING: )?(\^)?Your ClamAV installation is OUTDATED!
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (WARNING: )?(\^)?Local version: [.[:digit:]]+ Recommended version: [.[:digit:]]+
