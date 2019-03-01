@@ -3,4 +3,4 @@
 ^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]\-]+ systemd\[[0-9]+\]: (Start|Stopp)ed [ +[:alnum:]/]+\.$
 ^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]\-]+ systemd\[[0-9]+\]: Reloading\.$
 ^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]\-]+ systemd\[[0-9]+\]: Time has been changed$
-^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]\-]+ systemd\[[0-9]+\]: [-_[:alnum:]]+.timer: Adding ([0-9]+h )?([0-9]{1,2}min )?[0-9]{1,2}\.[0-9]{6}s random time\.$
+^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]\-]+ systemd\[[0-9]+\]: [-_[:alnum:]]+.timer: Adding ([0-9]+h )?([0-9]{1,2}min )?[0-9]{1,3}\.[0-9]{3,6}m?s random time\.$
