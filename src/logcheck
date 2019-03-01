@@ -84,6 +84,7 @@ INTRO=1
 LOGCHECKDEBUG=0
 MAILOUT=0
 MAILASATTACH=0
+MIMEENCODING=
 NOCLEANUP=0
 REBOOT=0
 FQDN=0
@@ -176,7 +177,7 @@ Also verify that the logcheck user can read all files referenced in
 $(export)
 EOF
 	} | eval mime-construct $MIMECONSTRUCTARGS \
-	    --subject "'Logcheck: $HOSTNAME $DATE exiting due to errors'" --encoding "7bit" \
+	    --subject "'Logcheck: $HOSTNAME $DATE exiting due to errors'" "${ENCODING[@]}" \
         --file - --to "$SENDMAILTO"
 
     elif [ "$MAILOUT" -eq 1 ]; then
@@ -306,14 +307,14 @@ sendreport() {
 	debug "Sending report: '$subject' to $SENDMAILTO"
         if [ "$MAILASATTACH" -eq 1 ]; then
           debug "Sending report as attachment"
-          eval mime-construct $MIMECONSTRUCTARGS --subject "'$subject'" --encoding "7bit" --string "'Report attached'" --to "$SENDMAILTO" --attachment "logcheck_report" --encoding "7bit" --file "$TMPDIR/report"
+          eval mime-construct $MIMECONSTRUCTARGS --subject "'$subject'" "${ENCODING[@]}" --string "'Report attached'" --to "$SENDMAILTO" --attachment "logcheck_report" "${ENCODING[@]}" --file "$TMPDIR/report"
           return $?
         elif [ "$MAILASATTACH" -eq 2 ]; then
           debug "Sending report as gzip attachment"
-          eval mime-construct $MIMECONSTRUCTARGS --subject "'$subject'" --encoding "7bit" --string "'Report attached'" --to "$SENDMAILTO" --type "application/x-gzip" --attachment "logcheck_report.gz" --file "'gzip -c $TMPDIR/report |'"
+          eval mime-construct $MIMECONSTRUCTARGS --subject "'$subject'" "${ENCODING[@]}" --string "'Report attached'" --to "$SENDMAILTO" --type "application/x-gzip" --attachment "logcheck_report.gz" --file "'gzip -c $TMPDIR/report |'"
           return $?
         fi
-        eval mime-construct $MIMECONSTRUCTARGS --subject "'$subject'" --to "$SENDMAILTO" --encoding "7bit" --file "$TMPDIR/report"
+        eval mime-construct $MIMECONSTRUCTARGS --subject "'$subject'" --to "$SENDMAILTO" "${ENCODING[@]}" --file "$TMPDIR/report"
     fi
 }
 
@@ -534,6 +535,13 @@ if [ "$SORTUNIQ" -eq 1 ];then
     SORT="sort -u"
 else
     SORT="sort -k 1,3 -s"
+fi
+
+# Set the forced mime encoding if not left blank (auto)
+if [ -n "$MIMEENCODING" ]; then
+	ENCODING=(--encoding "$MIMEENCODING")
+else
+	ENCODING=()
 fi
 
 # Hostname either fully qualified or not.
