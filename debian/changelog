@@ -12,6 +12,7 @@ logcheck (1.3.20) UNRELEASED; urgency=medium
   * docs/logcheck.sgml:
     - add missing dot (thanks to Vincas Dargis for the patch) (closes: #859746)
   * Switch to debhelper 12
+  * ignore.d.server/postfix: match TLS 1.1 or later (closes: #913621)
 
  -- Hannes von Haugwitz <hannes@vonhaugwitz.com>  Thu, 28 Feb 2019 21:45:26 +0100
 
