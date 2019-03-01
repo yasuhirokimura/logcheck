@@ -2,16 +2,19 @@ This package is a native Debian package.  It is currently maintained
 by the Debian Logcheck team <logcheck@packages.debian.org>
 consisting of:
 
-	Todd Troxell <ttroxell@debian.org>
-	Maximilian Attems <max@nl.linux.org>
-	Gerfried Fuchs <rhonda@debian.org>
-	Eric Evans <eevans@sym-link.com>
-	Jamie Penman-Smithson <jamie@silverdream.org>
-	martin f. krafft <madduck@debian.org>
-	Marc Haber <mh+debian-packages@zugschlus.de>
-	Hanspeter Kunz <hkunz@ifi.uzh.ch>
-	Hannes von Haugwitz <hannes@vonhaugwitz.com>
-	Jeremy L. Gaddis <jlgaddis@gnu.org>
+    Hannes von Haugwitz <hannes@vonhaugwitz.com>
+
+Previous maintainers:
+
+    Todd Troxell <ttroxell@debian.org>
+    Maximilian Attems <max@nl.linux.org>
+    Gerfried Fuchs <rhonda@debian.org>
+    Eric Evans <eevans@sym-link.com>
+    Jamie Penman-Smithson <jamie@silverdream.org>
+    martin f. krafft <madduck@debian.org>
+    Marc Haber <mh+debian-packages@zugschlus.de>
+    Hanspeter Kunz <hkunz@ifi.uzh.ch>
+    Jeremy L. Gaddis <jlgaddis@gnu.org>
 
 The project is currently hosted on salsa.debian.org at:
 https://salsa.debian.org/debian/logcheck
@@ -24,7 +27,7 @@ as well as the 'CHANGES' file.
 
 Copyright:
 
- Copyright (C) 2004-2018 Debian Logcheck Team
+ Copyright (C) 2004-2019 Debian Logcheck Team
                          <logcheck@packages.debian.org>
  Copyright (C) 2003      Steve Kemp <skx@debian.org>
  Copyright (C) 2002,2003 Jonathan Middleton <jjm@ixtab.org.uk>
