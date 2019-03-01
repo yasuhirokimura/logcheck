@@ -1,13 +1,13 @@
 logcheck (1.3.20) UNRELEASED; urgency=medium
 
   * Remove inactive Uploaders (closes: #920183):
-	- Eric Evans
-	- Hanspeter Kunz
-	- Marc Haber
-	- martin f. krafft
-	- maximilian attems
-	- Todd Troxell
-	Thanks for helping with the package.
+    - Eric Evans
+    - Hanspeter Kunz
+    - Marc Haber
+    - martin f. krafft
+    - maximilian attems
+    - Todd Troxell
+    Thanks for helping with the package.
   * Bump to Standards-Version 4.3.0 (no changes necessary)
   * docs/logcheck.sgml:
     - add missing dot (thanks to Vincas Dargis for the patch) (closes: #859746)
