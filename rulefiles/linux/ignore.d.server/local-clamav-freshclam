@@ -1,5 +1,6 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? ClamAV update process started at .*$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Received signal: (wake up|re-opening log file)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (bytecode|daily|main) database available for update \(local version: [[:digit:]]+, remote version: [[:digit:]]+\)
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (bytecode|daily|main)\.c[lv]d( database)? (is up to date|updated) \(version: [[:digit:]]+, sigs: [[:digit:]]+, f-level: [[:digit:]]+, builder: [[:alnum:]]+\)
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Trying host [._[:alnum:]-]+ \(([.[:digit:]]+|[:[:xdigit:]]+)\)...
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Incremental update failed, trying to download daily.cvd
