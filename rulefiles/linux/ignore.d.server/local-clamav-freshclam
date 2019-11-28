@@ -7,6 +7,8 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Downloading (bytecode|daily)(-[[:digit:]]+\.cdiff|.cvd) \[100%\]
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Database updated \([0-9]+ signatures\) from .* \(IP: [[:xdigit:].:]+\)$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Clamd successfully notified about the update\.$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Testing database:
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? Database test passed.
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (WARNING: )?(\^)?Your ClamAV installation is OUTDATED!
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? (WARNING: )?(\^)?Local version: [.[:digit:]]+ Recommended version: [.[:digit:]]+
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ freshclam\[[[:digit:]]+\]:( \w{3} \w{3} [ :[:digit:]]{16} ->)? DON'T PANIC! Read https://www.clamav.net/documents/upgrading-clamav
