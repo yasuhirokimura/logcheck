@@ -1,6 +1,7 @@
 logcheck (1.3.21) UNRELEASED; urgency=low
 
   * Set debhelper-compat version in Build-Depends.
+  * Fix day-of-week for changelog entries 1.2.23, 1.2.17, 1.1.1-7.3, 1.1.1-7.
 
  -- Debian Janitor <janitor@jelmer.uk>  Tue, 25 Aug 2020 04:41:13 -0000
 
@@ -2951,7 +2952,7 @@ logcheck (1.2.23) unstable; urgency=low
   * Spamd update for unknown message id.
   * Add Kernel and bonobo rules for workstations.
 
- -- Todd Troxell <ttroxell@debian.org>  Thursday, 12 Jul 2004 22:55:19 -0500
+ -- Todd Troxell <ttroxell@debian.org>  Mon, 12 Jul 2004 22:55:19 -0500
 
 logcheck (1.2.22a) unstable; urgency=low
 
@@ -3136,7 +3137,7 @@ logcheck (1.2.17) unstable; urgency=low
   * Added NTP rules.  (Closes: #222944)
   * Updated su rules. (Closes: #226838)
 
- -- Steve Kemp <skx@debian.org>  Wednesday, 01 Apr 2004 11:04:21 +0000
+ -- Steve Kemp <skx@debian.org>  Thu, 01 Apr 2004 11:04:21 +0000
 
 logcheck (1.2.16) unstable; urgency=low
 
@@ -3825,7 +3826,7 @@ logcheck (1.1.1-7.3) unstable; urgency=medium
   * Yet another upload due to problems with orig.tar.gz.
     I am really sorry about this (hmh@debian.org, sponsor).
 
- -- Rene Mayrhofer <rene.mayrhofer@vianova.at>  Mon, 19 Dec 2000 18:52:00 -0200
+ -- Rene Mayrhofer <rene.mayrhofer@vianova.at>  Tue, 19 Dec 2000 18:52:00 -0200
 
 logcheck (1.1.1-7.1) unstable; urgency=low
 
@@ -3891,7 +3892,7 @@ logcheck (1.1.1-7) unstable; urgency=low
     confused by getting that much mails.
     Closes: #57751
 
- -- Rene Mayrhofer <rene.mayrhofer@vianova.at>  Thu, 24 Nov 2000 19:14:11 +0200
+ -- Rene Mayrhofer <rene.mayrhofer@vianova.at>  Fri, 24 Nov 2000 19:14:11 +0200
 
 logcheck (1.1.1-6) unstable; urgency=low
 
