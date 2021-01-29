@@ -47,7 +47,7 @@ SECURITY=0
 ATTACK=0
 
 # Set the getopts string
-GETOPTS="c:dhH:l:L:D:m:opr:RsS:tTuvw"
+GETOPTS="c:dhH:l:L:D:m:opr:RsS:tTvw"
 
 # Get the details for the email message
 DATE="$(date +'%Y-%m-%d %H:%M %z')"
@@ -77,7 +77,6 @@ LOGFILES_LIST_D="/etc/logcheck/logcheck.logfiles.d"
 LOGFILE_FALLBACK="/var/log/syslog"
 LOGTAIL="/usr/sbin/logtail2"
 CAT="/bin/cat"
-SYSLOG_SUMMARY="/usr/bin/syslog-summary"
 
 # Set the options defaults
 INTRO=1
@@ -90,7 +89,6 @@ REBOOT=0
 FQDN=0
 SORTUNIQ=0
 SUPPORT_CRACKING_IGNORE=0
-SYSLOGSUMMARY=0
 LOCKDIR=/run/lock/logcheck
 LOCKFILE="$LOCKDIR/logcheck"
 
@@ -246,19 +244,9 @@ report() {
     if [ -s "$TMPDIR/checked" ]; then
 	printheader "$*" >> "$TMPDIR/report" \
 	    || error "Could not append to report."
-	if [ "$SYSLOGSUMMARY" -eq 1 ] && [ -x "$SYSLOG_SUMMARY" ]; then
-	    debug "report: running syslog-summary - $*"
-	    $SYSLOG_SUMMARY "$TMPDIR/checked" | \
-		egrep -v "^Summarizing " | cat >> "$TMPDIR/report" \
-		    || error "Could not append to report."
-	else
-	    if [ "$SYSLOGSUMMARY" -eq 1 ] && [ ! -x "$SYSLOG_SUMMARY" ]; then
-		debug "report : WARNING : can't exec $SYSLOG_SUMMARY. Running without summary"
-	    fi
-	    debug "report: cat'ing - $*"
-	    cat "$TMPDIR/checked" >> "$TMPDIR/report" \
-	        || error "Could not append to report."
-	fi
+	debug "report: cat'ing - $*"
+	cat "$TMPDIR/checked" >> "$TMPDIR/report" \
+	    || error "Could not append to report."
 	echo >> "$TMPDIR/report" \
 	    || error "Could not append to report."
 	return 0
@@ -465,7 +453,7 @@ usage() {
     debug "usage: Printing usage and exiting"
     cat<<EOF
 usage: logcheck [-c CFG] [-d] [-h] [-H HOST] [-l LOG] [-L CFG] [-D DIR] [-m MAIL] [-o]
-                [-r DIR] [-s|-p|-w] [-R] [-S DIR] [-t] [-T] [-u]
+                [-r DIR] [-s|-p|-w] [-R] [-S DIR] [-t] [-T]
  -c CFG       = override default configuration file
  -d           = debug mode
  -h           = print this usage information and exit
@@ -482,7 +470,6 @@ usage: logcheck [-c CFG] [-d] [-h] [-H HOST] [-l LOG] [-L CFG] [-D DIR] [-m MAIL
  -S DIR       = override default state directory
  -t           = testing mode, don't update the logfile offsets
  -T           = do not remove the TMPDIR
- -u           = enable syslog-summary
  -v           = print version
  -w           = use the "workstation" runlevel
 EOF
