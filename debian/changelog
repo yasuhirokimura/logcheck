@@ -14,6 +14,9 @@ logcheck (1.3.21) UNRELEASED; urgency=medium
   [ Ville Salomäki ]
   * v.i.d/logcheck-su, v.i.d/logcheck-sudo: allow '.' and '_' in usernames
 
+  [Lee Maguire]
+  * src/logcheck: support systemd journal as log source (closes: #876420)
+
   [ Hannes von Haugwitz ]
   * i.d.s/dnsmasq: allow '.' in interface names, thanks to Craig Small for the
     patch (closes: #732655)
