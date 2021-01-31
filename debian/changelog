@@ -1,4 +1,4 @@
-logcheck (1.3.21) UNRELEASED; urgency=medium
+logcheck (1.3.21) unstable; urgency=medium
 
   [ Debian Janitor ]
   * Set debhelper-compat version in Build-Depends.
@@ -18,6 +18,13 @@ logcheck (1.3.21) UNRELEASED; urgency=medium
   * src/logcheck: support systemd journal as log source (closes: #876420)
 
   [ Hannes von Haugwitz ]
+  * Switch to debhelper 13
+  * Update standards version to 4.5.1, no changes needed.
+  * Update debian/copyright
+  * Set Rules-Requires-Root to no
+  * Add autopkgtest
+  * Adjust rules for PAM open session messages to match new format
+  * Update 'su' rules to match changed format (closes: #931770)
   * i.d.s/dnsmasq: allow '.' in interface names, thanks to Craig Small for the
     patch (closes: #732655)
   * i.d.s/openvpn: match 'VERIFY X509NAME OK' message (closes: #751292)
@@ -25,23 +32,16 @@ logcheck (1.3.21) UNRELEASED; urgency=medium
     - match autolearn_force field
     - properly match IPv6 addresses
     thanks to Craig Small for the patch (closes: #755374)
-  * Update 'su' rules to match changed format (closes: #931770)
   * i.d.s/postfix: match sasl_sender field (closes: #700851)
-  * Set Rules-Requires-Root to no
-  * Add autopkgtest
-  * Update standards version to 4.5.1, no changes needed.
-  * Adjust rules for PAM open session messages to match new format
   * i.d.s/su, v.i.d/logcheck-su:
     - match 'su-l:session'
     - match '(to <substitute-user>) <user>' message
   * i.d.s/systemd-logind: new
     - match logind session messages
-  * i.d.s/dhclient: adjust 'DHCPREQUEST' rule
   * i.d.s/systemd: match some Succeeded/Finished messages
-  * Update debian/copyright
-  * Switch to debhelper 13
+  * i.d.s/dhclient: adjust 'DHCPREQUEST' rule
 
- -- Hannes von Haugwitz <hannes@vonhaugwitz.com>  Thu, 28 Jan 2021 20:53:03 +0100
+ -- Hannes von Haugwitz <hannes@vonhaugwitz.com>  Sun, 31 Jan 2021 23:01:29 +0100
 
 logcheck (1.3.20) unstable; urgency=medium
 
