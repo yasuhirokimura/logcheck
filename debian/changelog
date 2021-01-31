@@ -38,6 +38,7 @@ logcheck (1.3.21) UNRELEASED; urgency=medium
     - match logind session messages
   * i.d.s/dhclient: adjust 'DHCPREQUEST' rule
   * i.d.s/systemd: match some Succeeded/Finished messages
+  * Update debian/copyright
 
  -- Hannes von Haugwitz <hannes@vonhaugwitz.com>  Thu, 28 Jan 2021 20:53:03 +0100
 
