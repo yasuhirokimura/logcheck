@@ -28,6 +28,7 @@ logcheck (1.3.21) UNRELEASED; urgency=medium
   * Update 'su' rules to match changed format (closes: #931770)
   * i.d.s/postfix: match sasl_sender field (closes: #700851)
   * Set Rules-Requires-Root to no
+  * Add autopkgtest
 
  -- Hannes von Haugwitz <hannes@vonhaugwitz.com>  Thu, 28 Jan 2021 20:53:03 +0100
 
