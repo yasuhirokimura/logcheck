@@ -2,7 +2,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd: \(pam_unix\) authentication failure; logname= uid=0 euid=0 tty= ruser= rhost=[-_.:[:alnum:]]+  user=[-_.[:alnum:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd: \(pam_unix\) session (opened|closed) for user [._[:alnum:]-]+( by \(uid=[[:digit:]]+\))?$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd: pam_unix\(proftpd:[[:alnum:]]+\): authentication failure; logname= uid=0 euid=0 tty= ruser=[-_.[:alnum:]]* rhost=[-_.:[:alnum:]]+  user=[-_.[:alnum:]]+$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd: pam_unix\(proftpd:session\): session (opened|closed) for user [._[:alnum:]-]+( by \(uid=[[:digit:]]+\))?$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd: pam_unix\(proftpd:session\): session (opened|closed) for user [._[:alnum:]-]+(\(uid=[[:digit:]]+\))?( by \(uid=[[:digit:]]+\))?$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd\[[[:digit:]]+\]:? [._[:alnum:]-]+ \([:._[:alnum:]-]+\[[.:[:xdigit:]]+\]\)(:| -) (USER [._[:alnum:]-]+|ANON (anonymous|ftp)): Limit access denies login\.$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd\[[[:digit:]]+\]:? [._[:alnum:]-]+ \([:._[:alnum:]-]+\[[.:[:xdigit:]]+\]\)(:| -) USER [-._[:alnum:]]+ \(Login failed\): (Limit access denies login|Incorrect password\.)$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ proftpd\[[[:digit:]]+\]:? [._[:alnum:]-]+ \([:._[:alnum:]-]+\[[.:[:xdigit:]]+\]\)(:| -) (USER [._[:alnum:]-]+|ANON (anonymous|ftp)): Login successful\.$
