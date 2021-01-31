@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Debian logcheck Team <logcheck@packages.debian.org>
 Uploaders: Hannes von Haugwitz <hannes@vonhaugwitz.com>
-Standards-Version: 4.4.1
+Standards-Version: 4.5.1
 Build-Depends: debhelper-compat (= 12)
 Build-Depends-Indep: docbook-to-man
 Rules-Requires-Root: no
