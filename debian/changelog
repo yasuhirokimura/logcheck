@@ -2,6 +2,8 @@ logcheck (1.3.23) UNRELEASED; urgency=medium
 
   * v.i.d/logcheck-sudo: adjust 'session opened' rule to match uid, thanks to
     Marco d'Itri  for the patch (closes: #985166)
+  * v.i.d/logcheck-su: allow 'none' as pseudo terminal, thanks to Marco d'Itri
+    for the patch
 
  -- Hannes von Haugwitz <hannes@vonhaugwitz.com>  Wed, 31 Mar 2021 16:05:08 +0200
 
