@@ -1,0 +1,8 @@
+^am$
+^i$
+^just$
+paranoid?
+
+# comments and blank lines are ignored,
+# so the next should not hide 'server'
+#?server

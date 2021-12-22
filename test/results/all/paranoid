@@ -1,0 +1,17 @@
+<This is the header from rulefiles/header.txt>
+Security Alerts
+=-=-=-=-=-=-=-=
+cracking
+cracking ignore
+
+Security Events for name
+=-=-=-=-=-=-=-=-=-=-=-=-
+local-test
+
+System Events
+=-=-=-=-=-=-=
+server
+unmatched
+unmatched
+workstation
+

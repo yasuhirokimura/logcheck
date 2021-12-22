@@ -1,2 +1,3 @@
 Tests: 01-logcheck
+Depends: @, bash, logcheck-database
 Restrictions: needs-root

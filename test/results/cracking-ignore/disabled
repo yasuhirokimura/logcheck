@@ -1,7 +1,4 @@
-This email is sent by logcheck. If you wish to no-longer receive it,
-you can either uninstall the logcheck package or modify its
-configuration file (../etc/logcheck.conf).
-
+<This is the header from rulefiles/header.txt>
 Security Alerts
 =-=-=-=-=-=-=-=
 cracking

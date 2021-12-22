@@ -1,20 +1,205 @@
-#!/bin/bash
+#!/bin/bash -ue
 
-set -eu
+LOGFILE="$(mktemp)"
+STATE="$(mktemp -d)"
+#shellcheck disable=SC2064 # we want to expand variables now
+trap "rm -rf '$LOGFILE' '$STATE'" 0 INT QUIT ABRT PIPE TERM
 
-LOGFILE=$(mktemp)
-trap 'rm -f ${LOGFILE}' 0 INT QUIT ABRT PIPE TERM
+chown root:adm "$LOGFILE"
+chmod 0640 "$LOGFILE"
+chown logcheck:logcheck "$STATE"
+chmod 0750 "$STATE"
 
-chmod 0640 "${LOGFILE}"
-chgrp adm "${LOGFILE}"
 
-echo "Jan 31 06:51:07 debian-sid-amd64 su: pam_unix(su-l:auth) failure; logname=testuser uid=1000 euid=0 tty=pts/7 ruser=testuser rhost=  user=root" >> "${LOGFILE}"
-echo "Jan 31 06:51:09 debian-sid-amd64 su: FAILED SU (to root) testuser on pts/7" >> "${LOGFILE}"
+STATUS="PASS"
 
-echo "Jan 31 07:15:01 debian-sid-amd64 CRON[588228]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)" >> "${LOGFILE}"
-echo "Jan 31 07:17:01 debian-sid-amd64 CRON[588240]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)" >> "${LOGFILE}"
+# usage: run_test "name of test - description" \
+#				          ./expected_output.file <expected exit status> \
+#                 command_to_test arg1 arg2...
+# The global variable "$STATUS" is set to "FAIL" if this test fails
+run_test(){
+		local name="$1"
+		local expected_file="$2"
+		local expected_exit="$3"
+		shift 3
+		local my_status=""
+		local diff="" code="0"
 
-EXPECTED_OUTPUT="This email is sent by logcheck. If you no longer wish to receive
+		"$@" > ./actual_file 2>&1 || code="$?"
+
+		diff="$(diff -u -- "$expected_file" ./actual_file 2>&1 || :)"
+
+		if [ "$code" != "$expected_exit" ]; then
+				my_status="ERROR (expected exit: $expected_exit, actual: $code)"
+		elif [ -z "$diff" ]; then
+				my_status="PASS"
+		else
+				my_status="FAIL"
+		fi
+
+		echo "** $my_status: $name"
+		if [ "$my_status" != "PASS" ]; then
+				STATUS=FAIL
+				cat <<EOF
+
+== [ EXPECTED: $name ] ======
+$(< "$expected_file")
+=============================
+
+== [ ACTUAL: $name ] ========
+$(< ./actual_file)
+=============================
+
+== [ DIFF: $name ] ==========
+$diff
+=============================
+
+EOF
+		fi
+}
+
+# for debugging only
+Xrun_test(){
+		echo "** DISABLED: $1"
+}
+
+cat  > "${LOGFILE}" <<EOF
+Jan 31 06:51:07 debian-sid-amd64 su: pam_unix(su-l:auth) failure; logname=testuser uid=1000 euid=0 tty=pts/7 ruser=testuser rhost=  user=root
+Jan 31 06:51:09 debian-sid-amd64 su: FAILED SU (to root) testuser on pts/7
+Jan 31 07:15:01 debian-sid-amd64 CRON[588228]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Jan 31 07:17:01 debian-sid-amd64 CRON[588240]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+EOF
+
+cat > as-root<<EOF
+logcheck should not be run as root. Use su to invoke logcheck:
+su -s /bin/bash -c "/usr/sbin/logcheck" logcheck
+Or use sudo: sudo -u logcheck logcheck.
+EOF
+run_test "needs-root" ./as-root 1 logcheck
+
+cat > as-root-with-args<<EOF
+logcheck should not be run as root. Use su to invoke logcheck:
+su -s /bin/bash -c "/usr/sbin/logcheck arg1 arg2" logcheck
+Or use sudo: sudo -u logcheck logcheck arg1 arg2.
+EOF
+run_test "needs-root-with-args" ./as-root-with-args 1 logcheck arg1 arg2
+
+cat > expected <<EOF
+Error: /no-such-file does not exist or could not be read.
+EOF
+run_test "-L /nonexist" expected 1 \
+					su -s /bin/bash -c \
+					"/usr/sbin/logcheck -o -L /no-such-file -D /dev/null" \
+					logcheck
+
+cat > expected <<EOF
+Error: E: File could not be read: /no-such-file.
+EOF
+
+echo "/no-such-file" > list
+run_test "-L list where list contains unreadable file" expected 1 \
+					su -s /bin/bash -c \
+					"/usr/sbin/logcheck -o -L ./list -D /dev/null" \
+					logcheck
+
+
+
+## Testing of output
+run_test "logcheck (1a: with header disabled)" \
+				 ./test/results/intro/disabled 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/intro/files -D /dev/null -c test/conf/intro-disabled -r test/rulefiles" \
+				 logcheck
+
+run_test "logcheck (repeating 1a: no more results)" \
+				 ./test/results/empty 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/intro/files -D /dev/null -c test/conf/intro-disabled -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+
+run_test "logcheck (1b: with header enabled)" \
+				 ./test/results/intro/enabled 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/intro/files -D /dev/null -c test/conf/intro-enabled -r test/rulefiles" \
+				 logcheck
+
+run_test "logcheck (repeating 1b: no more results)" \
+				 ./test/results/empty 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/intro/files -D /dev/null -c test/conf/intro-enabled -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+
+run_test "logcheck (1c: INTRO=yes is the same as INTRO=1 - both enable the intro)" \
+				 ./test/results/intro/enabled 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/intro/files -D /dev/null -c test/conf/intro-yes -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+run_test "logcheck (1d: INTRO=no is treated the same as disabling the intro)" \
+				 ./test/results/intro/disabled 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/intro/files -D /dev/null -c test/conf/intro-no -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+
+run_test "logcheck (2a: with cracking-ignore enabled - just one line is flagged)" \
+				 ./test/results/cracking-ignore/enabled 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/cracking-ignore/files -D /dev/null -c test/conf/cracking-ignore-enabled -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+run_test "logcheck (2b: with cracking-ignore disabled - both lines are flagged)" \
+					./test/results/cracking-ignore/disabled 0 \
+					su -s /bin/bash -c \
+					"/usr/sbin/logcheck -o -S '$STATE' -L test/logs/cracking-ignore/files -D /dev/null -c test/conf/intro-enabled -r test/rulefiles" \
+					logcheck
+rm -f "$STATE"/offset*
+
+run_test "logcheck (3: violations.ignore.d - only one of the 2 lines is flagged)" \
+				 ./test/results/violations.ignore.d/test 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -L test/logs/violations.ignore.d/files -D /dev/null -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+run_test "logcheck (4a: reportlevel - paranoid)" \
+				 ./test/results/reportlevel/paranoid 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -c test/conf/paranoid -L test/logs/reportlevel/files -D /dev/null -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+run_test "logcheck (4b: reportlevel - server)" \
+				 ./test/results/reportlevel/server 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -c test/conf/server -L test/logs/reportlevel/files -D /dev/null -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+run_test "logcheck (4c: reportlevel - workstation)" \
+				 ./test/results/reportlevel/workstation 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -c test/conf/workstation -L test/logs/reportlevel/files -D /dev/null -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+run_test "logcheck (5: all - paranoid)" \
+				 ./test/results/all/paranoid 0 \
+				 su -s /bin/bash -c \
+				 "/usr/sbin/logcheck -o -S '$STATE' -c test/conf/paranoid -L test/logs/all/files -D /dev/null -r test/rulefiles" \
+				 logcheck
+rm -f "$STATE"/offset*
+
+
+
+printf "This email is sent by logcheck. If you no longer wish to receive
 such mail, you can either uninstall the logcheck package or modify
 its configuration file (/etc/logcheck/logcheck.conf).
 
@@ -22,5 +207,18 @@ Security Events for su
 =-=-=-=-=-=-=-=-=-=-=-
 Jan 31 06:51:07 debian-sid-amd64 su: pam_unix(su-l:auth) failure; logname=testuser uid=1000 euid=0 tty=pts/7 ruser=testuser rhost=  user=root
 Jan 31 06:51:09 debian-sid-amd64 su: FAILED SU (to root) testuser on pts/7
-"
-diff <(su -s /bin/bash -c "/usr/sbin/logcheck -o -l ${LOGFILE}" logcheck) <(echo "$EXPECTED_OUTPUT")
+\n" > expected
+
+rm -f "$STATE"/offset*
+run_test "logcheck (actual rules and config)" expected 0 \
+				 su -s /bin/bash -c "/usr/sbin/logcheck -o -l '$LOGFILE' -S '$STATE'" logcheck
+
+
+
+if [ "$STATUS" = "PASS" ]; then
+		echo "* $0: PASS"
+		exit 0
+else
+		echo "* $0: $STATUS"
+		exit 1
+fi
