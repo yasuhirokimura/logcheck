@@ -48,6 +48,7 @@ install:
 	# Install the config files
 	install -m 640 etc/logcheck.logfiles $(DESTDIR)/$(CONFDIR)
 	install -m 640 etc/logcheck.conf $(DESTDIR)/$(CONFDIR)
+	install -m 640 etc/logcheck.logfiles.d/* $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d/
 
 	# Install the rulefiles
 	install -m 644 rulefiles/linux/ignore.d.paranoid/* \

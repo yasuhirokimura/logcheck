@@ -1,0 +1,9 @@
+## Log entries in the logs listed below will be checked by logcheck
+
+# The default is to check standard syslog files
+# created by rsyslog or other syslog daemons
+
+# (If your system does not use a syslog daemon you
+# can comment these lines out)
+/var/log/syslog
+/var/log/auth.log
