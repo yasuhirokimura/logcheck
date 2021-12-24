@@ -4,4 +4,4 @@ var/lib/logcheck/
 etc/logcheck/logcheck.logfiles
 etc/logcheck/logcheck.logfiles.d
 etc/logcheck/logcheck.conf
-debian/header.txt /usr/share/logcheck/
+debian/header.txt etc/logcheck/

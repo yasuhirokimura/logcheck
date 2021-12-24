@@ -17,14 +17,15 @@ install:
 	install -d $(DESTDIR)/$(SHAREDIR)
 
 	# Create directories for rules logcheck-database
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/ignore.d.paranoid
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/ignore.d.workstation
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/ignore.d.server
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/cracking.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/cracking.ignore.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/violations.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/violations.ignore.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/ignore.d.paranoid
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/ignore.d.workstation
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/ignore.d.server
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/cracking.d
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/cracking.ignore.d
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/violations.d
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/violations.ignore.d
+
+	install -m 755 -d $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d
 
 	# Create directories for rules logcheck-database-extra
 	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/ignore.d.paranoid
@@ -46,9 +47,9 @@ install:
 	install -m 755 src/detectrotate/30-logrotate-dateext.dtr $(DESTDIR)/$(SHAREDIR)/
 
 	# Install the config files
-	install -m 640 etc/logcheck.logfiles $(DESTDIR)/$(CONFDIR)
-	install -m 640 etc/logcheck.conf $(DESTDIR)/$(CONFDIR)
-	install -m 640 etc/logcheck.logfiles.d/* $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d/
+	install -m 644 etc/logcheck.logfiles $(DESTDIR)/$(CONFDIR)
+	install -m 644 etc/logcheck.conf $(DESTDIR)/$(CONFDIR)
+	install -m 644 etc/logcheck.logfiles.d/* $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d/
 
 	# Install the rulefiles
 	install -m 644 rulefiles/linux/ignore.d.paranoid/* \
