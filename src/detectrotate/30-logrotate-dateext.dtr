@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#-*-perl-*-
 
 sub {
   my ($filename) = @_;

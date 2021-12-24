@@ -1,0 +1,6 @@
+# Some rules involve long lines
+logcheck source: very-long-line-length-in-source-file 530 > 512 [rulefiles/linux/ignore.d.server/openvpn:35]
+logcheck source: very-long-line-length-in-source-file 548 > 512 [rulefiles/linux/ignore.d.server/spamd:4]
+logcheck source: very-long-line-length-in-source-file 605 > 512 [rulefiles/linux/ignore.d.server/innd:7]
+logcheck source: very-long-line-length-in-source-file 692 > 512 [rulefiles/linux/ignore.d.server/dovecot:3]
+logcheck source: very-long-line-length-in-source-file 930 > 512 [rulefiles/linux/ignore.d.server/postfix:2]

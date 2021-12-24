@@ -42,9 +42,9 @@ install:
 	install -m 755 src/logtail $(DESTDIR)/$(SBINDIR)/
 	install -m 755 src/logtail2 $(DESTDIR)/$(SBINDIR)/
 	install -m 755 src/logcheck-test $(DESTDIR)/$(BINDIR)/
-	install -m 755 src/detectrotate/10-savelog.dtr $(DESTDIR)/$(SHAREDIR)/
-	install -m 755 src/detectrotate/20-logrotate.dtr $(DESTDIR)/$(SHAREDIR)/
-	install -m 755 src/detectrotate/30-logrotate-dateext.dtr $(DESTDIR)/$(SHAREDIR)/
+	install -m 644 src/detectrotate/10-savelog.dtr $(DESTDIR)/$(SHAREDIR)/
+	install -m 644 src/detectrotate/20-logrotate.dtr $(DESTDIR)/$(SHAREDIR)/
+	install -m 644 src/detectrotate/30-logrotate-dateext.dtr $(DESTDIR)/$(SHAREDIR)/
 
 	# Install the config files
 	install -m 644 etc/logcheck.logfiles $(DESTDIR)/$(CONFDIR)

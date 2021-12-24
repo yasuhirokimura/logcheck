@@ -1,2 +1,10 @@
-logcheck binary: non-standard-file-perm etc/logcheck/logcheck.logfiles 0640 != 0644
-logcheck binary: non-standard-file-perm etc/logcheck/logcheck.conf 0640 != 0644
+# The postinst uses 'chown -R' but only to reset permissions to
+# 'root:root', so there is not the same security risk as when running
+# 'logcheck:logcheck' (which might let a malicious logcheck user gain
+# access to sensitive files by creating a hardlink). The current use of
+# chown is to reset non-standard permissions added by the bullseye
+# version of logcheck. From bookworm we only modify the permission of
+# /etc/logcheck and leave contents alone. The call to chown -R can be
+# removed in bookworm+1.
+logcheck: recursive-privilege-change "chown -R" [postinst:62]
+logcheck: recursive-privilege-change "chmod -R" [postinst:63]
