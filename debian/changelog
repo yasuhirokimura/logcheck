@@ -1,3 +1,11 @@
+logcheck (1.3.24) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.6.0 no changes needed.
+  * Thank you everyone and particular to Hannes von Haugwitz for
+    maintaining this software (Closes: #981446).
+
+ -- Jose M Calhariz <calhariz@debian.org>  Thu, 14 Jul 2022 21:09:03 +0100
+
 logcheck (1.3.23) unstable; urgency=medium
 
   * v.i.d/logcheck-sudo: adjust 'session opened' rule to match uid, thanks to
