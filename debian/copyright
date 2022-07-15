@@ -2,10 +2,11 @@ This package is a native Debian package.  It is currently maintained
 by the Debian Logcheck team <logcheck@packages.debian.org>
 consisting of:
 
-    Hannes von Haugwitz <hannes@vonhaugwitz.com>
+    Jose M Calhariz <calhariz@debian.org>
 
 Previous maintainers:
 
+    Hannes von Haugwitz <hannes@vonhaugwitz.com>
     Todd Troxell <ttroxell@debian.org>
     Maximilian Attems <max@nl.linux.org>
     Gerfried Fuchs <rhonda@debian.org>
@@ -27,7 +28,7 @@ as well as the 'CHANGES' file.
 
 Copyright:
 
- Copyright (C) 2004-2021 Debian Logcheck Team
+ Copyright (C) 2004-2022 Debian Logcheck Team
                          <logcheck@packages.debian.org>
  Copyright (C) 2003      Steve Kemp <skx@debian.org>
  Copyright (C) 2002,2003 Jonathan Middleton <jjm@ixtab.org.uk>
