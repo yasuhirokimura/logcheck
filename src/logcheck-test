@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright © 2007–2011,2015 Hannes von Haugwitz <hannes@vonhaugwitz.com>
+# Copyright © 2007–2011,2015,2022 Hannes von Haugwitz <hannes@vonhaugwitz.com>
 
 # This file is part of Logcheck
 
@@ -86,8 +86,8 @@ while [ -n "${1:-}" ]; do
             else
                 if [ -z "$FILE" ] ; then
                     FILE="$1"
-                    if ! [ -f "$FILE" ] ; then
-                        err "'$FILE' is no regular file"
+                    if ! [ -f "$FILE" -o -p "$FILE" ] ; then
+                        err "'$FILE' is neither a regular file nor a pipe"
                         exit 8
                     fi
                 else
