@@ -5,7 +5,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot-auth: \(pam_unix\) check pass; user unknown$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot-auth: pam_unix\(dovecot:[[:alnum:]]+\): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=([-_.@[:alnum:]]+)? rhost=([.:[:xdigit:]]+)?(  user=[-_.@[:alnum:]]+)?$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot-auth: pam_unix\(dovecot:[[:alnum:]]+\): check pass; user unknown$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot-auth: pam_ldap: error trying to bind as user \".*\" \(Invalid credentials\)$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot-auth: pam_ldap: error trying to bind as user ".*" \(Invalid credentials\)$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (imap|pop3)-login: Login: [.[:alnum:]@-]+ \[[.:[:xdigit:]]+\]$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)-login: Aborted login( \([[:digit:]]+ authentication attempts\))?: (user=<[-_.@[:alnum:]]+>, method=[[:alnum:]-]+, )?rip=[.:[:xdigit:]]+, lip=[.:[:xdigit:]]+(, (TLS( handshake)?|secured))?$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ dovecot: (pop3|imap)-login: (Disconnected|Aborted login)(: Inactivity)? (\(no auth attempts\):|\(auth failed, [[:digit:]]+ attempts\): user=<[-_.@[:alnum:]]+>, method=PLAIN,|\(aborted authentication\): method=PLAIN,) rip=[.[:digit:]]+, lip=[.[:digit:]]+, (TLS|SSL)(( handshaking)?(: Disconnected)?|: SSL_read\(\) syscall failed: Connection reset by peer)?$

@@ -50,7 +50,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? ieee1394: The root node is not cycle master capable; selecting a new root node and resetting\.\.\.$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? ieee1394: Error parsing configrom for node [-:[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? ieee1394: sbp2: Logged into SBP-2 device$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? ieee1394: Node [:[:digit:]\-]+ Max speed \[S[[:digit:]]+\] - Max payload \[[[:digit:]]+\]$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? ieee1394: Node [:[:digit:]-]+ Max speed \[S[[:digit:]]+\] - Max payload \[[[:digit:]]+\]$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? scsi[[:digit:]]+ : SCSI emulation for (IEEE-1394 SBP-2 Devices|USB Mass Storage devices)$
 ^[[:alpha:]]{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? scsi[[:digit:]]+ : usb-storage [0-9]-[0-9](\.[0-9])?:1\.0$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? Attached scsi removable disk sd[a-z]( at scsi[[:digit:]], channel [[:digit:]], id [[:digit:]], lun [[:digit:]])?$
@@ -65,7 +65,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? sd [:[:digit:]]+: \[sd[a-z]\] Assuming drive cache: write through$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? sd [:[:digit:]]+: \[sd[a-z]\] Spinning up disk\.\.\.\.ready$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? [[:space:]]*sd[a-z]:( sd[a-z][[:digit:]]+)*$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? sr[[:digit:]]+: [^[:space:]]+ drive(: [ \/[:alnum:]]+)?$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? sr[[:digit:]]+: [^[:space:]]+ drive(: [ /[:alnum:]]+)?$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? +Type: +[^[:space:]]+ +ANSI SCSI revision: [[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? (sr [:[:digit:]]+: )?Attached scsi CD-ROM sr[[:digit:]]+( at scsi[[:digit:]], channel [[:digit:]], id [[:digit:]], lun [[:digit:]]+)?$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ scsi.agent\[[[:digit:]]+\]: (disk|cdrom) at [\./:[:alnum:]-]+$
@@ -92,7 +92,7 @@
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? cdc_acm [-:[:digit:].]+ ttyACM[[:digit:]]: USB ACM device$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? drivers/usb/serial/pl2303.c: Prolific PL2303 USB to serial adaptor driver v[.[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? Bluetooth: HCI USB driver ver [.[:digit:]]+$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? drivers\/usb\/class\/audio\.c: v[.[:digit:]]+:USB Audio Class driver$
+^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? drivers/usb/class/audio\.c: v[.[:digit:]]+:USB Audio Class driver$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? usbaudio: assuming that a stereo channel connected directly to a mixer is missing in search \(got .*\?\)\. Should be fine\.$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? usbaudio: constructing mixer for Terminal [[:digit:]]+ type 0x[[:digit:]]+$
 ^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ kernel:( \[ *[[:digit:]]+\.[[:digit:]]+\])? usbaudio: device [[:digit:]] audiocontrol interface [[:digit:]] has [[:digit:]] input and [[:digit:]] output AudioStreaming interfaces$
