@@ -1,2 +1,2 @@
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: NETDB state saved;$
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ squid\[[[:digit:]]+\]: eventCleanup$
+^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ squid\[[[:digit:]]+\]: NETDB state saved;$
+^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ squid\[[[:digit:]]+\]: eventCleanup$

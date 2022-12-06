@@ -1,2 +1,2 @@
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ [-[:alnum:]]+\[[0-9]+\]: pam_mount\(mount\.c:[[:digit:]]+\):? realpath of volume "[.[:alnum:]/_-]+" is "[.[:alnum:]/_-]+"$
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ [-[:alnum:]]+\[[0-9]+\]: pam_mount\(mount\.c:[[:digit:]]+\): Command successful\.$
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ [-[:alnum:]]+\[[0-9]+\]: pam_mount\(mount\.c:[[:digit:]]+\):? realpath of volume "[.[:alnum:]/_-]+" is "[.[:alnum:]/_-]+"$
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ [-[:alnum:]]+\[[0-9]+\]: pam_mount\(mount\.c:[[:digit:]]+\): Command successful\.$
