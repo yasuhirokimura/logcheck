@@ -1,4 +1,7 @@
 logcheck (1.4.0) UNRELEASED; urgency=medium
+  [ Richard Lewis ]
+  * Update rules to understand new ryslog 'high precision' timestamp format (Closes: #1023755)
+  * Update rules to remove stray \ characters. Thanks to Thomas Dorner (Closes: #1020827)
 
   [ Debian Janitor ]
   * Remove constraints unnecessary since buster:
