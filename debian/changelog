@@ -1,5 +1,11 @@
 logcheck (1.4.0) UNRELEASED; urgency=medium
 
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    - logcheck: Drop versioned constraint on logtail in Depends.
+    - logtail: Drop versioned constraint on perl in Depends.
+    - Remove 3 maintscript entries from 1 files.
+
   [ Hannes von Haugwitz ]
   * s/logcheck-test: add pipe support for --log-file
 
@@ -13,7 +19,7 @@ logcheck (1.4.0) UNRELEASED; urgency=medium
     - Bump Standards-Version to 4.6.1 (no changes needed)
   * d/copyright: Add myself
 
- -- Mathias Gibbens <gibmat@debian.org>  Wed, 07 Dec 2022 00:17:05 +0000
+ -- Mathias Gibbens <gibmat@debian.org>  Wed, 07 Dec 2022 00:37:16 +0000
 
 logcheck (1.3.24) unstable; urgency=medium
 

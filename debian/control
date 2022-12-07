@@ -18,7 +18,7 @@ Depends: adduser,
          cron | cron-daemon,
          rsyslog | system-log-daemon,
          mime-construct,
-         logtail (>= 1.2.59),
+         logtail,
          lockfile-progs,
          ${misc:Depends}
 Recommends: logcheck-database (>= ${source:Version})
@@ -50,7 +50,7 @@ Description: database of system log rules for the use of log checkers
 
 Package: logtail
 Architecture: all
-Depends: perl (>= 5.8.0),
+Depends: perl,
          ${misc:Depends}
 Description: Print log file lines that have not been read
  This program will read in a standard text file and create an
