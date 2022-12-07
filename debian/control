@@ -2,8 +2,9 @@ Source: logcheck
 Section: admin
 Priority: optional
 Maintainer: Debian logcheck Team <logcheck@packages.debian.org>
-Uploaders: Jose M Calhariz <calhariz@debian.org>
-Standards-Version: 4.6.0
+Uploaders: Jose M Calhariz <calhariz@debian.org>,
+           Mathias Gibbens <gibmat@debian.org>
+Standards-Version: 4.6.1
 Build-Depends: debhelper-compat (= 13)
 Build-Depends-Indep: docbook-to-man
 Rules-Requires-Root: no
