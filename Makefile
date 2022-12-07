@@ -27,14 +27,14 @@ install:
 	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/logcheck.logfiles.d
 
 	# Create directories for rules logcheck-database-extra
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/ignore.d.paranoid
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/ignore.d.workstation
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/ignore.d.server
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/cracking.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/cracking.ignore.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/violations.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/violations.ignore.d
-	install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/logcheck.logfiles.d
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/ignore.d.paranoid
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/ignore.d.workstation
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/ignore.d.server
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/cracking.d
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/cracking.ignore.d
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/violations.d
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/violations.ignore.d
+	#install -m 2750 -d $(DESTDIR)/$(CONFDIR)/extra/logcheck.logfiles.d
 
 	# Install the scripts
 	install -m 755 src/logcheck $(DESTDIR)/$(SBINDIR)/
@@ -64,18 +64,18 @@ install:
 		$(DESTDIR)/$(CONFDIR)/cracking.d/
 
 	# Install the rulefiles for extra
-	install -m 644 rulefiles/linux-extra/ignore.d.paranoid/* \
-		$(DESTDIR)/$(CONFDIR)/extra/ignore.d.paranoid/
-	install -m 644 rulefiles/linux-extra/ignore.d.server/* \
-		$(DESTDIR)/$(CONFDIR)/extra/ignore.d.server/
-	install -m 644 rulefiles/linux-extra/ignore.d.workstation/* \
-		$(DESTDIR)/$(CONFDIR)/extra/ignore.d.workstation/
-	install -m 644 rulefiles/linux-extra/violations.d/* \
-		$(DESTDIR)/$(CONFDIR)/extra/violations.d/
-	install -m 644 rulefiles/linux-extra/violations.ignore.d/* \
-		$(DESTDIR)/$(CONFDIR)/extra/violations.ignore.d/
-	install -m 644 rulefiles/linux-extra/cracking.d/* \
-		$(DESTDIR)/$(CONFDIR)/extra/cracking.d/
+	#install -m 644 rulefiles/linux-extra/ignore.d.paranoid/* \
+	#	$(DESTDIR)/$(CONFDIR)/extra/ignore.d.paranoid/
+	#install -m 644 rulefiles/linux-extra/ignore.d.server/* \
+	#	$(DESTDIR)/$(CONFDIR)/extra/ignore.d.server/
+	#install -m 644 rulefiles/linux-extra/ignore.d.workstation/* \
+	#	$(DESTDIR)/$(CONFDIR)/extra/ignore.d.workstation/
+	#install -m 644 rulefiles/linux-extra/violations.d/* \
+	#	$(DESTDIR)/$(CONFDIR)/extra/violations.d/
+	#install -m 644 rulefiles/linux-extra/violations.ignore.d/* \
+	#	$(DESTDIR)/$(CONFDIR)/extra/violations.ignore.d/
+	#install -m 644 rulefiles/linux-extra/cracking.d/* \
+	#	$(DESTDIR)/$(CONFDIR)/extra/cracking.d/
 
 clean:
 	# Remove the scripts

@@ -37,16 +37,15 @@ Description: database of system log rules for the use of log checkers
  It brings a database of regular expressions for matching system log entries
  after various criteria.
 
-Package: logcheck-database-extra
-Architecture: all
-Depends: ${misc:Depends}
-Description: database of more common system log rules than logcheck-database
- This database is part of the Logcheck package, but might be used by
- others.  It brings a database of regular expressions for matching
- very common system log entries that do not belong to
- logcheck-database.  This entries for example match common startup and
- stop messages of daemons.
- 
+#Package: logcheck-database-extra
+#Architecture: all
+#Depends: ${misc:Depends}
+#Description: database of more common system log rules than logcheck-database
+# This database is part of the Logcheck package, but might be used by
+# others.  It brings a database of regular expressions for matching
+# very common system log entries that do not belong to
+# logcheck-database.  This entries for example match common startup and
+# stop messages of daemons.
 
 Package: logtail
 Architecture: all
