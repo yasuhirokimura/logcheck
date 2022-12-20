@@ -1,1 +1,1 @@
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ apcupsd\[[[:digit:]]+\]: UPS Self Test (switch to battery.|completed: Battery OK)$
+^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ apcupsd\[[[:digit:]]+\]: UPS Self Test (switch to battery.|completed: Battery OK)$

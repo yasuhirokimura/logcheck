@@ -1,1 +1,1 @@
-^\w{3} [ :0-9]{11} [._[:alnum:]-]+ vsftpd: PAM-listfile: Refused user [._[:alnum:]-]+ for service vsftpd$
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ vsftpd: PAM-listfile: Refused user [._[:alnum:]-]+ for service vsftpd$

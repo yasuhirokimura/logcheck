@@ -1,3 +1,53 @@
+logcheck-database (1.3.25) unstable; urgency=medium
+
+  logcheck rules that target /var/log/syslog likely need to be updated
+  if you are using rsyslog.
+
+  Since version 8.2210.0-3, rsyslog defaults to 'high precision
+  timestamps' so rules (including locally generated rules) that target
+  /var/log/syslog are likely to stop working unless they are
+  modified. The rules provided by the logcheck-database package have
+  been updated but you will need to update all your local rules (or
+  configure rsyslog to use the 'old' format).
+
+  The following can be run as root to update all local rules:
+
+  for rule in /etc/logcheck/*.d*/local-*; do
+   sed --in-place --regexp-extended \
+    's,^\^((\\w|\[\[:alpha:\]\])\{3\} \[ :(0-9|\[:digit:\])\]\{11\}),^(\1|[0-9T:.+-]{32}),' \
+    "$rule"
+  done
+
+  This replaces "^<old prefix>" with "^(<old prefix>|<new prefix>)" in
+  all rules that start 'local-' -- if you have added rules not named
+  like that you will want to apply a similar change.
+
+  The ^<old prefix> includes the following four regexes which were
+  commonly used to match the start of the 'old-format' timestamp used
+  by rsyslog in debian bullseye:
+
+      ^\w{3} [ :0-9]{11}
+      ^\w{3} [ :[:digit:]]{11}
+      ^[[:alpha:]]{3} [ :[:digit:]]{11}
+      ^[[:alpha:]]{3} [ :0-9]{11}
+
+  Each of these match timestamps such as "Tue 06 Dec 21:00:00", which
+  is the format used by the systemd journal and by rsyslog without the
+  'high-precision' format.
+
+  The <new prefix> is '^[0-9T:.+-]{32}' which matches timestamps that
+  look like "2022-12-06T21:00:00.123456+01:00", the new
+  'high-precision' format which is now used by a default rsyslog
+  installation.
+
+  It is recommended to retain the '<old prefix>' in rules to ensure
+  rules can also be used against log entries from the systemd journal:
+  checking the journal is not done by default (yet), but can be
+  enabled by writing the string 'journal' into
+  /etc/logcheck/logfiles.d/journal.logfiles
+
+ -- Richard Lewis <richard.lewis.debian@googlemail.com>  Tue, 6 Dec 2022 21:00:00 +0100
+
 logcheck-database (1.3.0) unstable; urgency=low
 
   logcheck-database dropped violations.d/logcheck a while ago because it was
