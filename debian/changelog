@@ -1,4 +1,4 @@
-logcheck (1.4.0~WIP+3) UNRELEASED; urgency=medium
+logcheck (1.4.0) UNRELEASED; urgency=medium
 
   [ Debian Janitor ]
   * Remove constraints unnecessary since buster:
