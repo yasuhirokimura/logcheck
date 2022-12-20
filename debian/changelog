@@ -1,4 +1,4 @@
-logcheck (1.4.0) UNRELEASED; urgency=medium
+logcheck (1.4.0~WIP+1) UNRELEASED; urgency=medium
 
   [ Debian Janitor ]
   * Remove constraints unnecessary since buster:
@@ -19,7 +19,7 @@ logcheck (1.4.0) UNRELEASED; urgency=medium
     - Bump Standards-Version to 4.6.1 (no changes needed)
   * d/copyright: Add myself
 
- -- Mathias Gibbens <gibmat@debian.org>  Wed, 07 Dec 2022 00:37:16 +0000
+ -- Jose M Calhariz <calhariz@debian.org>  Tue, 20 Dec 2022 12:34:27 +0000
 
 logcheck (1.3.24) unstable; urgency=medium
 
