@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian logcheck Team <logcheck@packages.debian.org>
 Uploaders: Jose M Calhariz <calhariz@debian.org>,
            Mathias Gibbens <gibmat@debian.org>
-Standards-Version: 4.6.1
+Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13)
 Build-Depends-Indep: docbook-to-man
 Rules-Requires-Root: no

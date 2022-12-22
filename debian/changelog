@@ -1,4 +1,4 @@
-logcheck (1.4.0) UNRELEASED; urgency=medium
+logcheck (1.4.0) unstable; urgency=medium
 
   [ Debian Janitor ]
   * Remove constraints unnecessary since buster:
@@ -16,29 +16,17 @@ logcheck (1.4.0) UNRELEASED; urgency=medium
   [ Mathias Gibbens ]
   * d/control:
     - Add myself to Uploaders
-    - Bump Standards-Version to 4.6.1 (no changes needed)
+    - Bump Standards-Version to 4.6.2 (no changes needed)
   * d/copyright: Add myself
+  * Update hardcoded (ugh!) version in src/logcheck
 
   [ Richard Lewis ]
-  * Update rules to understand new ryslog 'high precision' timestamp format (Closes: #1023755)
-  * Update rules to remove stray \ characters. Thanks to Thomas Dorner (Closes: #1020827)
-    - ignore.d.server/anon-proxy
-    - ignore.d.server/cyrus
-    - ignore.d.server/dhcp
-    - ignore.d.server/dovecot
-    - ignore.d.server/hylafax
-    - ignore.d.server/innd
-    - ignore.d.server/nagios
-    - ignore.d.server/perdition
-    - ignore.d.server/qpopper
-    - ignore.d.server/ssh
-    - ignore.d.server/systemd
-    - ignore.d.workstation/kernel
-  * And these files had stray instances of \/, found by Thomas Dorner
-    - ignore.d.server/samba
-    - ignore.d.workstation/kernel
+  * Update rules to understand new ryslog 'high precision' timestamp
+    format (Closes: #1023755)
+  * Update rules to remove stray '\' characters. Thanks to Thomas Dorner
+    (Closes: #1020827)
 
- -- Jose M Calhariz <calhariz@debian.org>  Tue, 20 Dec 2022 13:18:38 +0000
+ -- Mathias Gibbens <gibmat@debian.org>  Thu, 22 Dec 2022 23:03:11 +0000
 
 logcheck (1.3.24) unstable; urgency=medium
 
