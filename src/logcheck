@@ -178,12 +178,17 @@ Logcheck failed: Your log entries may not have been checked.
 Details:
 $message
 
-${TMPDIR:+Check temporary directory: $TMPDIR
+To identify the cause you may wish to:
+${TMPDIR:+"- Check temporary directory: $TMPDIR"
 }
-Also verify that the logcheck user can read all files referenced in
-/etc/logcheck/logcheck.logfiles
-
-$(export)
+- verify that the logcheck user can read all
+logfiles specified in;
+  /etc/logcheck/logcheck.logfiles
+  /etc/logcheck/logcheck.logfiled.d/*.logfiles
+- check the system has enough space; (df -h output follows):
+$(df -h 2>&1|| :)
+- check the settings (environment follows):
+$(export 2>&1||:)
 EOF
 				} | mime-construct "${MIMECONSTRUCTARGS[@]}" \
 								 --subject "Logcheck: $HOSTNAME $DATE exiting due to errors" "${ENCODING[@]}" \
