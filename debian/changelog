@@ -1,3 +1,11 @@
+logcheck (1.4.1.UNRELEASED) unstable; urgency=medium
+
+  [ Richard Lewis ]
+  *  Add autopkgtests (incorporating and replacing the previous test suite)
+     and have them run on each commit to salsa.debian.org (Closes: #1025895)
+
+ -- Richard Lewis <richard.lewis.debian@googlemail.com>  Fri, 23 Dec 2022 11:00:00 +0100
+
 logcheck (1.4.0) unstable; urgency=medium
 
   [ Debian Janitor ]
