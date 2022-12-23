@@ -94,6 +94,9 @@ SYSLOGSUMMARY=0
 LOCKDIR=/run/lock/logcheck
 LOCKFILE="$LOCKDIR/logcheck"
 
+# Allow globs to return zero files
+shopt -s nullglob
+
 # Carry out the clean up tasks
 cleanup() {
 
@@ -693,16 +696,16 @@ fi
 # Handle log rotation correctly, idea taken from Wiktor Niesiobedzki.
 mkdir "$TMPDIR/logoutput" \
     || error "Could not mkdir for log files"
-LOGFILES=$(ls -1d "$LOGFILES_LIST" "$LOGFILES_LIST_D"/*.logfiles 2>/dev/null)
-if [ ! "$LOGFILE" ] && [ -n "$LOGFILES" ]; then
+LOGFILES=("$LOGFILES_LIST" "$LOGFILES_LIST_D"/*.logfiles)
+if [ -z "${LOGFILE-}" ] && [ "${#LOGFILES[@]}" != "0" ]; then
     SAVEIFS=$IFS; IFS=$(echo -en "\n\b");
-    for file_list in ${LOGFILES} ; do
-        if [ -f  "$file_list" ] ; then
+    for file_list in "${LOGFILES[@]}" ; do
+        if [ -f  "$file_list" ] && [ -r "$file_list" ]; then
             for file in $(egrep --text -v -h "(^#|^[[:space:]]*$)" "$file_list"); do
                 logoutput "$file"
             done
         else
-            error "$file_list is not a regular file"
+            error "$file_list does not exist or could not be read"
         fi
     done
     IFS=$SAVEIFS
