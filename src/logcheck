@@ -133,7 +133,13 @@ debug() {
 		local file="${2-}"
 		local lines=0
 		if [ "$LOGCHECKDEBUG" -eq 1 ]; then
-				echo "D: [$(date +%s)] $1" >&2
+				echo "DEBUG: [$(date)] $1" >&2
+				if [ -n "$file" ]; then
+						lines=$(wc -l "$file" | cut -d ' ' -f1)
+						echo "--- START [ $file (LINES: $lines) ] ---" >&2
+						cat "$file" >&2
+						echo -e "--- END [ $file (LINES: $lines) ] ---\n" >&2
+				fi
 		fi
 }
 
@@ -350,14 +356,17 @@ greplogoutput() {
 
 		debug "greplogoutput ($*): Starting"
 		for grepfile in "$raise"/*; do
-				debug "greplogoutput: $grepfile"
+				debug "greplogoutput: Using $grepfile to find entries to report" "$grepfile"
 
 				# Report entries that match
 				command grep -E --text -f "$grepfile" "$TMPDIR/logoutput-sorted" \
 						| cat > "$TMPDIR/checked" \
 						|| error "Could not output to $TMPDIR/checked"
 
-				# apply different ignore rules
+				debug "greplogoutput: After using $grepfile we have the following entries to report" \
+							 "$TMPDIR/checked"
+
+				# apply different 'ignore' rules
 				if [ -s "$TMPDIR/checked" ]; then
 						ignore_rules="$ignore/$(basename "$grepfile")"
 						debug "Filtering reportable entries using '$ignore_rules' (if it exists)"
@@ -755,7 +764,8 @@ fi
 # the same lines) to reduce CPU and memory usage.
 debug "Sorting logs"
 $SORT "$TMPDIR/logoutput"/* | sed -e 's/[[:space:]]\+$//' > "$TMPDIR/logoutput-sorted" \
-		|| error "Could not output to $TMPDIR/logoutput-sorted."
+		|| error "Could not save sorted log content to $TMPDIR/logoutput-sorted"
+debug "After sorting, we have the following log entries to check" "$TMPDIR/logoutput-sorted"
 
 # See if the logoutput-sorted file actually has data to check,
 #  if not, we have nothing to do: erase it and exit
