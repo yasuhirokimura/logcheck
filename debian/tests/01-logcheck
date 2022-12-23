@@ -85,15 +85,15 @@ EOF
 run_test "needs-root-with-args" ./as-root-with-args 1 logcheck arg1 arg2
 
 cat > expected <<EOF
-Error: /no-such-file does not exist or could not be read.
+Error: /no-such-list does not exist or could not be read
 EOF
-run_test "-L /nonexist" expected 1 \
+run_test "-L /no-such-list" expected 1 \
 					su -s /bin/bash -c \
-					"/usr/sbin/logcheck -o -L /no-such-file -D /dev/null" \
+					"/usr/sbin/logcheck -o -L /no-such-list -D /dev/null" \
 					logcheck
 
 cat > expected <<EOF
-Error: E: File could not be read: /no-such-file.
+Error: E: File could not be read: /no-such-file
 EOF
 
 echo "/no-such-file" > list
