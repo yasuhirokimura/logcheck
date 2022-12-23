@@ -498,6 +498,12 @@ logoutput() {
 						offsettime=""
 						if [ -f "$offsetfile" ]; then
 								offsettime="--since=@$(stat -c %Y "$offsetfile")"
+						else
+								echo "This is the first time logcheck has checked the systemd journal." \
+										 >> "$TMPDIR/report" || error "Could not write message about first-time check of journal to report"
+								echo "Only recent entries (from the last 5 hours) will be checked" \
+										 >> "$TMPDIR/report" || error "Could not write message about first-time check of journal to report"
+								offsettime="--since=-5h"
 						fi
 						debug "Running $JOURNALCTL ${JOURNALCTL_OPTS[*]} -q $offsettime"
 						"$JOURNALCTL" "${JOURNALCTL_OPTS[@]}" --quiet "$offsettime" \
