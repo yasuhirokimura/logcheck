@@ -98,17 +98,22 @@ LOCKFILE="$LOCKDIR/logcheck"
 # Allow globs to return zero files
 shopt -s nullglob
 
-# Carry out the clean up tasks
-cleanup() {
+# remove the lockfile
+remove_lockfile(){
 		if [ -n "$LOCK" ]; then
-				debug "cleanup: Killing lockfile-touch - $LOCK"
+				debug "Killing lockfile-touch - $LOCK"
 				kill "$LOCK" && unset LOCK
 		fi
 
 		if [ -f "$LOCKFILE.lock" ]; then
-				debug "cleanup: Removing lockfile: $LOCKFILE.lock"
+				debug "Removing lockfile: $LOCKFILE.lock"
 				lockfile-remove "$LOCKFILE"
 		fi
+}
+
+# cleanup() is called at the end to remove temporary files
+cleanup() {
+		remove_lockfile
 
 		if [ -d "$TMPDIR" ]; then
 				if [ "$NOCLEANUP" -eq 0 ];then
@@ -118,6 +123,7 @@ cleanup() {
 						debug "cleanup: Not removing working dir: $TMPDIR"
 				fi
 		fi
+		debug "cleanup: Done"
 }
 
 # debug() output (does nothing unless -d given, if -d, writes to stderr)
@@ -155,18 +161,8 @@ error() {
 		if [ "${2-}" = "noclean" ]; then
 				debug "error(): Not removing lockfile"
 		else
-				if [ -n "$LOCK" ]; then
-						debug "error: Killing lockfile-touch - $LOCK"
-						kill "$LOCK" && unset LOCK
-				fi
-
-				if [ -f "$LOCKFILE.lock" ]; then
-						debug "error: Removing lockfile: $LOCKFILE.lock"
-						lockfile-remove "$LOCKFILE"
-				fi
+				remove_lockfile
     fi
-
-		debug "Error: $message"
 
 		if [ "$MAILOUT" -eq 0 ]; then
 				{
