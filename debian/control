@@ -14,29 +14,37 @@ Vcs-Browser: https://salsa.debian.org/debian/logcheck
 Package: logcheck
 Architecture: all
 Depends: adduser,
-         default-mta | mail-transport-agent,
-         cron | cron-daemon,
-         rsyslog | system-log-daemon,
-         mime-construct,
-         logtail,
          lockfile-progs,
+         default-mta | mail-transport-agent,
+         mime-construct,
+         cron | cron-daemon,
+         logtail,
          ${misc:Depends}
 Recommends: logcheck-database (>= ${source:Version})
-Suggests: syslog-summary
-Description: mails anomalies in the system logfiles to the administrator
- Logcheck helps spot problems and security violations in your logfiles
- automatically and will send the results to you in e-mail.
+Enhances: rsyslog, system-log-daemon, systemd
+Suggests: syslog-summary, rsyslog | system-log-daemon,
+Description: check the system log for unusual entries
+ Logcheck analyses the system log for unuexpected entries that could
+ indicate problems or security issues.
  .
- Logcheck was part of the Abacus Project of security tools, but this
- version has been rewritten.
+ Log entries in the system log (produced by systemd-journald, rsyslog
+ or another system-log-dameon) are checked against a customisable
+ database of regular expressions (such as that provided by the
+ logcheck-database package) to identify routine messages: anything
+ that does not identified as routine is reported to the system
+ administrator.
+ .
+ Logcheck was originally part of the Abacus Project of security tools,
+ but has been rewritten.
 
 Package: logcheck-database
 Architecture: all
 Depends: ${misc:Depends}
-Description: database of system log rules for the use of log checkers
- This database is part of the Logcheck package, but might be used by others.
- It brings a database of regular expressions for matching system log entries
- after various criteria.
+Enhances: logcheck
+Description: database of system log rules for logcheck
+ This package brings a database of regular expressions for matching
+ system log entries. It is part of Logcheck, but might be used by
+ other log checkers.
 
 #Package: logcheck-database-extra
 #Architecture: all
@@ -52,18 +60,17 @@ Package: logtail
 Architecture: all
 Depends: perl,
          ${misc:Depends}
-Description: Print log file lines that have not been read
- This program will read in a standard text file and create an
- offset marker when it reads the end. The offset marker is read
- the next time logtail is run and the text file pointer is moved
- to the offset location. This allows logtail to read in the next
- lines of data following the marker. This is good for marking log
- files for automatic log file checkers to monitor system events.
+Enhances: logcheck
+Description: Identify new lines added to the end of log files
+ Each time logtail and logtail2 are run on a file they print lines
+ added since the last run.
  .
- The package also provides logtail2, which better deals with rotated log
- files: If logtail2 finds that the inode of the file was changed, it assumes
- that the log has been rotated, and tries to find the file it was rotated to
- using heuristic plugins. If it finds the file, it will print the remainder of
- the file starting at the offset saved to the offset file. If a file with the
- correct inode was not found, logtail2 will only print the new file in its
- entirety before writing a new offset file.
+ They can be used by log checkers, such as logcheck, to identify new
+ entries in log files.
+ .
+ This package provides both logtail and logtail2. The latter is better
+ suited to log files that may be rotated between runs: if logtail2
+ finds that the inode of the file changed, it tries to find the file
+ it was rotated from using customisable heuristics. If it finds the
+ file, it will new find lines added to the old file as well as to the
+ new file.
