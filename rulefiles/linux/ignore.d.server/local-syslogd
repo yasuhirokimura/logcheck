@@ -1,1 +1,1 @@
-^\w{3} [ :[:digit:]]{11} [._[:alnum:]-]+ syslogd: last message repeated [[:digit:]]+ times
+^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ syslogd: last message repeated [[:digit:]]+ times
