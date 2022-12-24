@@ -53,7 +53,7 @@ GETOPTS="c:dhH:l:L:D:m:opr:RsS:tTuvw"
 DATE="$(date +'%Y-%m-%d %H:%M %z')"
 
 # Used by 'logcheck -v'
-VERSION="1.4.0"
+VERSION=unknown
 
 # Set the default report level
 REPORTLEVEL="server"

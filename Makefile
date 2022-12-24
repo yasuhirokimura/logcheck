@@ -39,6 +39,7 @@ install:
 
 	# Install the scripts
 	install -m 755 src/logcheck $(DESTDIR)/$(SBINDIR)/
+	sed -i "s/^VERSION=unknown$$/VERSION=$$(dpkg-parsechangelog -S version)/" $(DESTDIR)/$(SBINDIR)/logcheck
 	install -m 755 src/logtail $(DESTDIR)/$(SBINDIR)/
 	install -m 755 src/logtail2 $(DESTDIR)/$(SBINDIR)/
 	install -m 755 src/logcheck-test $(DESTDIR)/$(BINDIR)/
