@@ -1,4 +1,4 @@
-logcheck (1.4.1.UNRELEASED.5) unstable; urgency=medium
+logcheck (1.4.1.UNRELEASED.6) unstable; urgency=medium
 
   [ Richard Lewis ]
   * logcheck:
@@ -7,13 +7,15 @@ logcheck (1.4.1.UNRELEASED.5) unstable; urgency=medium
         change the directory itself (and restore on purge) (Closes: #1025897)
      - Ensure reports are made if all ignore.d.* directories are empty
      - Improve output when '-d' option is given
+     - Ensure version (as returned by 'logcheck -v') is always in sync with the
+       package version
      - Fix shellcheck issues in the main logcheck script
   *  logtail: remove d/logtail.prerm
   *  Add autopkgtests (incorporating and replacing the previous test suite)
      and have them run on each commit to salsa.debian.org (Closes: #1025895)
   *  Update or override lintian false-positives
 
- -- Richard Lewis <richard.lewis.debian@googlemail.com>  Sat, 24 Dec 2022 17:00:00 +0000
+ -- Richard Lewis <richard.lewis.debian@googlemail.com>  Sat, 24 Dec 2022 17:25:00 +0000
 
 logcheck (1.4.0) unstable; urgency=medium
 
