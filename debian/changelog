@@ -1,13 +1,15 @@
-logcheck (1.4.1.UNRELEASED.2) unstable; urgency=medium
+logcheck (1.4.1.UNRELEASED.3) unstable; urgency=medium
 
   [ Richard Lewis ]
+  * logcheck:
+     - Enable checking of the systemd journal by default (Closes: #1025719)
+     - Ensure reports are made if all ignore.d.* directories are empty
+     - Improve output when '-d' option is given
+     - Fix shellcheck issues in the main logcheck script
   *  Add autopkgtests (incorporating and replacing the previous test suite)
      and have them run on each commit to salsa.debian.org (Closes: #1025895)
-  *  Ensure reports are made if all ignore.d.* directories are empty
-  *  Improve output when '-d' option is given
-  *  Fix shellcheck issues in the main logcheck script
 
- -- Richard Lewis <richard.lewis.debian@googlemail.com>  Fri, 23 Dec 2022 17:55:00 +0100
+ -- Richard Lewis <richard.lewis.debian@googlemail.com>  Sat, 24 Dec 2022 10:20:00 +0000
 
 logcheck (1.4.0) unstable; urgency=medium
 
