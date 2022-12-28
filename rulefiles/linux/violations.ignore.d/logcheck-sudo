@@ -1,5 +1,10 @@
-^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo: pam_krb5\(sudo:auth\): user [._[:alnum:]-]+ authenticated as [._[:alnum:]-]+@[.A-Z]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo:[[:space:]]+[_[:alnum:].-]+ : TTY=(unknown|console|(pts/|tty|vc/)[[:digit:]]+) ; PWD=[^;]+ ; USER=[._[:alnum:]-]+( ; GROUP=[._[:alnum:]-]+)? ; COMMAND=((/(usr|etc|bin|sbin)/|sudoedit ).*|list)$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo:[[:space:]]+[_[:alnum:].-]+ : \(command continued\).*$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo: pam_[[:alnum:]]+\(sudo:session\): session opened for user [._[:alnum:]-]+\(uid=[0-9]+\) by ([[:alnum:]-]+)?\(uid=[0-9]+\)$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo: pam_[[:alnum:]]+\(sudo:session\): session closed for user [._[:alnum:]-]+$
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?: pam_krb5\(sudo:auth\): user [._[:alnum:]-]+ authenticated as [._[:alnum:]-]+@[.A-Z]+$
+
+# https://sources.debian.org/src/sudo/1.9.11p3-2/lib/eventlog/eventlog.c/#L211-L304
+# https://sources.debian.org/src/sudo/1.9.11p3-2/lib/eventlog/eventlog.c/#L60-L70
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?:[[:space:]]+[._[:alnum:]-]+ : ((HOST|TTY|CHROOT|PWD|USER|GROUP|ENV|TSID)=[^ ;]+ ; )*COMMAND=((/(usr|etc|bin|sbin)/|sudoedit ).*|list)$
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?:[[:space:]]+[._[:alnum:]-]+ : \(command continued\) .+$
+
+# https://sources.debian.org/src/pam/1.5.2-5/modules/pam_unix/pam_unix_sess.c/?hl=100#L100
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?: pam_[[:alnum:]]+\(sudo:session\): session opened for user [._[:alnum:]-]+\(uid=[0-9]+\) by [._[:alnum:]-]*\(uid=[0-9]+\)$
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?: pam_[[:alnum:]]+\(sudo:session\): session closed for user [._[:alnum:]-]+$
