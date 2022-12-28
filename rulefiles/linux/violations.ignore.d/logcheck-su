@@ -1,10 +1,17 @@
-^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: pam_krb5\(su:auth\): user [._[:alnum:]-]+ authenticated as [._[:alnum:]-]+@[.A-Z]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: (\+|-) (/dev/)?(pts/[0-9]{1,2}|tty[0-9]) [_[:alnum:]-]+:[_[:alnum:]-]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: \(pam_[[:alnum:]]+\) session opened for user [._[:alnum:]-]+ by ([[:alnum:]-]+)?\(uid=[0-9]+\)$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: \(pam_[[:alnum:]]+\) session closed for user [._[:alnum:]-]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: pam_[[:alnum:]]+\(su(-l)?:session\): session opened for user [._[:alnum:]-]+(\(uid=[[:digit:]]+\))? by ([[:alnum:]-]+)?\(uid=[0-9]+\)$
+# Potentially valid? https://sources.debian.org/src/libpam-krb5/4.11-1/module/password.c/?hl=371#L371
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: pam_krb5\(su:auth\): user [._[:alnum:]-]+ authenticated as [._[:alnum:]-]+@[.A-Z]+$
+
+## Old entries - no longer seen on bullseye
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: (\+|-) (/dev/)?(pts/[0-9]{1,2}|tty[0-9]) [_[:alnum:]-]+:[_[:alnum:]-]+$
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: \(pam_[[:alnum:]]+\) session opened for user [._[:alnum:]-]+ by ([[:alnum:]-]+)?\(uid=[0-9]+\)$
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: \(pam_[[:alnum:]]+\) session closed for user [._[:alnum:]-]+$
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: \+ \?\?\? root:[_[:alnum:]-]+$
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: Successful su for [._[:alnum:]-]+ by [._[:alnum:]-]+$
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: pam_authenticate: Authentication failure$
+
+# https://sources.debian.org/src/pam/1.5.2-5/modules/pam_unix/pam_unix_sess.c/?hl=100#L100
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: pam_[[:alnum:]]+\(su(-l)?:session\): session opened for user [._[:alnum:]-]+\(uid=[0-9]+\) by [._[:alnum:]-]*\(uid=[0-9]+\)$
 ^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: pam_[[:alnum:]]+\(su(-l)?:session\): session closed for user [._[:alnum:]-]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: \+ \?\?\? root:[_[:alnum:]-]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: Successful su for [._[:alnum:]-]+ by [._[:alnum:]-]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: pam_authenticate: Authentication failure$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su: \(to [._[:alnum:]-]+\) [._[:alnum:]-]+ on (none|pts/[0-9]{1,2})$
+
+# https://sources.debian.org/src/util-linux/2.38.1-4/login-utils/su-common.c/
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ su(\[[0-9]+\])?: \(to [._[:alnum:]-]+\) [._[:alnum:]-]+ on (none|pts/[0-9]+)$
