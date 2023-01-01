@@ -1,3 +1,10 @@
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ login\[[0-9]+\]: ROOT LOGIN  on '(/dev/)?ttyS?[0-9]'$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ login: ROOT LOGIN pts/[0-9] FROM [._[:alnum:]-]+$
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ newgrp\[[0-9]+\]: user '[[:alnum:]-]+' \(login '[[:alnum:]-]+' on (pts/[0-9]+|tty[0-9]+)\) (returned|switched) to group '[[:alnum:]-]+'$
+## agetty
+# https://sources.debian.org/src/util-linux/2.38.1-4/login-utils/login.c/#L813-L822 (unclear why two spaces and quotes?)
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ login\[[0-9]+\]: ROOT LOGIN  on '(/dev/pts/|tty)[0-9]+'$
+
+# https://sources.debian.org/src/pam/1.5.2-5/modules/pam_unix/pam_unix_sess.c/?hl=100#L100
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ login\[[0-9]+\]: pam_unix\(login:session\): session opened for user [._[:alnum:]-]+\(uid=[0-9]+\) by LOGIN\(uid=0\)$
+
+# old messages, no longer seen (?)
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ login: ROOT LOGIN pts/[0-9] FROM [._[:alnum:]-]+$
+#^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ newgrp\[[0-9]+\]: user '[[:alnum:]-]+' \(login '[[:alnum:]-]+' on (pts/[0-9]+|tty[0-9]+)\) (returned|switched) to group '[[:alnum:]-]+'$
