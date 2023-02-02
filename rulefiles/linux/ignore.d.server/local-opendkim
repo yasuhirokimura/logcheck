@@ -1,1 +1,2 @@
 ^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ opendkim\[[[:digit:]]+\]: [[:xdigit:]]+: failed to parse Authentication-Results: header field
+^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ opendkim\[[[:digit:]]+\]: [[:xdigit:]]+: message has signatures from
