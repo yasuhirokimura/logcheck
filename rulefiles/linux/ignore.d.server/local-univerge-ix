@@ -1,2 +1,3 @@
 ^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ +IP6\[[[:digit:]]+\]: Beyond scope for packet, [:[:xdigit:]]+ > [:[:xdigit:]]+
 ^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ +TCP\[[[:digit:]]+\]: Sending RESET to host [.[:digit:]]+,
+^(\w{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ +TCP\[[[:digit:]]+\]: Received packet [.[:digit:]]+\([[:digit:]]+\) > [.[:digit:]]+\([[:digit:]]+\) has no tcp connection,
