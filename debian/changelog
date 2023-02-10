@@ -1,9 +1,12 @@
-logcheck (1.4.1.UNRELEASED.8) unstable; urgency=medium
+logcheck (1.4.1) UNRELEASED; urgency=medium
+
+  [ Mathias Gibbens ]
+  * Mark logcheck-database as Multi-Arch: foreign
 
   [ Richard Lewis ]
   * logcheck-database:
      - Update rules for: su, sudo (Closes: #1024673), and
-		    systemd (Closes: #988389, #808429), login
+       systemd (Closes: #988389, #808429), login
   * logcheck:
      - Enable checking of the systemd journal by default (Closes: #1025719)
      - Do not change permissions of files inside /etc/logcheck, only
@@ -18,7 +21,7 @@ logcheck (1.4.1.UNRELEASED.8) unstable; urgency=medium
      and have them run on each commit to salsa.debian.org (Closes: #1025895)
   *  Update or override lintian false-positives
 
- -- Richard Lewis <richard.lewis.debian@googlemail.com>  Sat, 24 Dec 2022 17:25:00 +0000
+ -- Mathias Gibbens <gibmat@debian.org>  Fri, 10 Feb 2023 21:29:46 +0000
 
 logcheck (1.4.0) unstable; urgency=medium
 

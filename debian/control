@@ -39,6 +39,7 @@ Description: check the system log for unusual entries
 
 Package: logcheck-database
 Architecture: all
+Multi-Arch: foreign
 Depends: ${misc:Depends}
 Enhances: logcheck
 Description: database of system log rules for logcheck
