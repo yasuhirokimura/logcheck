@@ -1,0 +1,2 @@
+# dh_installchangelogs trims the changelog to only include entries more recent than the release date of oldstable
+logtail: debian-news-entry-has-unknown-version 1.2.35 [usr/share/doc/logtail/NEWS.Debian.gz:1]

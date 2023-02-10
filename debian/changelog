@@ -3,6 +3,8 @@ logcheck (1.4.1) UNRELEASED; urgency=medium
   [ Mathias Gibbens ]
   * Mark logcheck-database as Multi-Arch: foreign
   * Remove useless `check` target from Makefile
+  * Add lintian overrides for debian-news-entry-has-unknown-version, since
+    dh_installchangelogs now trims ancient entries
 
   [ Richard Lewis ]
   * logcheck-database:
