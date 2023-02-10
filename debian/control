@@ -22,7 +22,7 @@ Depends: adduser,
          ${misc:Depends}
 Recommends: logcheck-database (>= ${source:Version})
 Enhances: rsyslog, system-log-daemon, systemd
-Suggests: syslog-summary, rsyslog | system-log-daemon,
+Suggests: rsyslog | system-log-daemon
 Description: check the system log for unusual entries
  Logcheck analyses the system log for unuexpected entries that could
  indicate problems or security issues.
