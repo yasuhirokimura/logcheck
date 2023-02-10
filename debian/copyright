@@ -1,12 +1,15 @@
-This package is a native Debian package.  It is currently maintained
-by the Debian Logcheck team <logcheck@packages.debian.org>
-consisting of:
-
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Comment:
+ This package is a native Debian package. It is currently maintained
+ by the Debian Logcheck team <logcheck@packages.debian.org>
+ consisting of:
+ .
     Jose M Calhariz <calhariz@debian.org>
     Mathias Gibbens <gibmat@debian.org>
-
-Previous maintainers:
-
+    Richard Lewis <richard.lewis.debian@googlemail.com>
+ .
+ Previous maintainers:
+ .
     Hannes von Haugwitz <hannes@vonhaugwitz.com>
     Todd Troxell <ttroxell@debian.org>
     Maximilian Attems <max@nl.linux.org>
@@ -17,26 +20,39 @@ Previous maintainers:
     Marc Haber <mh+debian-packages@zugschlus.de>
     Hanspeter Kunz <hkunz@ifi.uzh.ch>
     Jeremy L. Gaddis <jlgaddis@gnu.org>
+ .
+ The project is currently hosted on salsa.debian.org at:
+ https://salsa.debian.org/debian/logcheck
+ .
+ Please read the following mails and subsequent threads:
+ http://lists.debian.org/debian-devel/2001/debian-devel-200102/msg01235.html
+ and
+ http://lists.debian.org/debian-devel/2001/debian-devel-200111/msg01573.html
+ as well as the 'CHANGES' file.
 
-The project is currently hosted on salsa.debian.org at:
-https://salsa.debian.org/debian/logcheck
-
-Please read the following mails and subsequent threads:
-http:///lists.debian.org/debian-devel/2001/debian-devel-200102/msg01235.html
-and
-http://lists.debian.org/debian-devel/2001/debian-devel-200111/msg01573.html
-as well as the 'CHANGES' file.
-
+Files: *
 Copyright:
-
- Copyright (C) 2004-2022 Debian Logcheck Team
+ Copyright (C) 2004-2023 Debian Logcheck Team
                          <logcheck@packages.debian.org>
  Copyright (C) 2003      Steve Kemp <skx@debian.org>
  Copyright (C) 2002,2003 Jonathan Middleton <jjm@ixtab.org.uk>
  Copyright (C) 1999-2002 Rene Mayrhofer <rmayr@debian.org>
  Copyright (C) 1996-1997 Craig H. Rowland <crowland@psionic.com>
+License: GPL-2.0
 
-This software is published under the terms of the GNU general public license,
-version 2 (not later).
-On Debian systems, a copy of the license can normally be found under
-/usr/share/common-licenses/GPL-2.
+License: GPL-2.0
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License version 2 as
+ published by the Free Software Foundation.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this package; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+Comment:
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.

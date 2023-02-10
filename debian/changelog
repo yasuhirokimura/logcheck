@@ -1,6 +1,7 @@
 logcheck (1.4.1) UNRELEASED; urgency=medium
 
   [ Mathias Gibbens ]
+  * Convert d/copyright to a machine-readable format
   * Mark logcheck-database as Multi-Arch: foreign
   * Remove useless `check` target from Makefile
   * Add lintian overrides for debian-news-entry-has-unknown-version, since
