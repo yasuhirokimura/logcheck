@@ -2,6 +2,7 @@ logcheck (1.4.1) UNRELEASED; urgency=medium
 
   [ Mathias Gibbens ]
   * Mark logcheck-database as Multi-Arch: foreign
+  * Remove useless `check` target from Makefile
 
   [ Richard Lewis ]
   * logcheck-database:

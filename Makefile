@@ -107,9 +107,6 @@ clean:
 distclean:
 	-find . -name "*~" | xargs --no-run-if-empty rm -vf
 
-check:
-	#cd test; python test.py
-
 system-test:
 	cd test; rm -fv state/*; \
 		../src/logcheck -c ../etc/logcheck.conf \
