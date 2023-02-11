@@ -1,4 +1,4 @@
-logcheck (1.4.1) UNRELEASED; urgency=medium
+logcheck (1.4.1) unstable; urgency=medium
 
   [ Mathias Gibbens ]
   * Convert d/copyright to a machine-readable format
@@ -27,7 +27,7 @@ logcheck (1.4.1) UNRELEASED; urgency=medium
      and have them run on each commit to salsa.debian.org (Closes: #1025895)
   *  Update or override lintian false-positives
 
- -- Mathias Gibbens <gibmat@debian.org>  Fri, 10 Feb 2023 21:29:46 +0000
+ -- Mathias Gibbens <gibmat@debian.org>  Sat, 11 Feb 2023 16:04:40 +0000
 
 logcheck (1.4.0) unstable; urgency=medium
 

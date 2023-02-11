@@ -2,7 +2,7 @@
 
 # https://sources.debian.org/src/sudo/1.9.11p3-2/lib/eventlog/eventlog.c/#L211-L304
 # https://sources.debian.org/src/sudo/1.9.11p3-2/lib/eventlog/eventlog.c/#L60-L70
-^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?:[[:space:]]+[._[:alnum:]-]+ : ((HOST|TTY|CHROOT|PWD|USER|GROUP|ENV|TSID)=[^ ;]+ ; )*COMMAND=((/(usr|etc|bin|sbin)/|sudoedit ).*|list)$
+^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?:[[:space:]]+[._[:alnum:]-]+ : ((HOST|TTY|CHROOT|PWD|USER|GROUP|ENV|TSID|EXIT|SIGNAL)=[^ ;]+ ; )*COMMAND=((/(usr|etc|bin|sbin)/|sudoedit ).*|list)$
 ^(\w{3} [ :0-9]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ sudo(\[[0-9]+\])?:[[:space:]]+[._[:alnum:]-]+ : \(command continued\) .+$
 
 # https://sources.debian.org/src/pam/1.5.2-5/modules/pam_unix/pam_unix_sess.c/?hl=100#L100
