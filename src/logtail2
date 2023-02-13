@@ -109,7 +109,7 @@ sub determine_rotated_logfile {
     # function with dateext magic added.
 
     #print "determine_rotated_logfile $filename $inode\n";
-    for my $codefile (glob("/usr/share/logtail/detectrotate/*.dtr")) {
+    for my $codefile (glob("%%DATADIR%%/detectrotate/*.dtr")) {
         my $func = do $codefile;
         if (!$func) {
 	    print STDERR "cannot compile $codefile: $!";
