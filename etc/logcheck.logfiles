@@ -4,7 +4,7 @@
 # end in '.logfiles') under /etc/logcheck/logcheck.logfiles.d/
 #
 # It is recommended that you put local settings into
-# /etc/logcheck.d/local.logfiles instead of editing this file
+# /etc/logcheck/logcheck.logfiles.d/local.logfiles instead of editing this file
 #
 # Each line should be:
 # - an absolute path to a log

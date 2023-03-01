@@ -8,6 +8,3 @@
 # removed in bookworm+1.
 logcheck: recursive-privilege-change "chown -R" [postinst:62]
 logcheck: recursive-privilege-change "chmod -R" [postinst:63]
-
-# dh_installchangelogs trims the changelog to only include entries more recent than the release date of oldstable
-logcheck: debian-news-entry-has-unknown-version 1.2.33 [usr/share/doc/logcheck/NEWS.Debian.gz:1]

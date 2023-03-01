@@ -1,3 +1,13 @@
+logcheck (1.4.2) unstable; urgency=medium
+
+  Beginning with bookworm, logcheck defaults to checking the systemd
+  journal in addition to any syslog files created by rsyslog or other
+  similar daemons. If you wish to disable either the journal or syslog
+  source, please modify the corresponding configuration file under
+  /etc/logcheck/logcheck.logfiles.d/.
+
+ -- Mathias Gibbens <gibmat@debian.org>  Wed, 01 Mar 2023 22:14:06 +0000
+
 logcheck (1.2.33) unstable; urgency=low
 
   Logcheck's rulefile directory permissions have been changed in this
