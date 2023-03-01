@@ -59,7 +59,7 @@ Description: database of system log rules for logcheck
 
 Package: logtail
 Architecture: all
-Depends: perl,
+Depends: perl:any,
          ${misc:Depends}
 Enhances: logcheck
 Description: Identify new lines added to the end of log files
