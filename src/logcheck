@@ -503,7 +503,7 @@ logoutput() {
 										 >> "$TMPDIR/report" || error "Could not write message about first-time check of journal to report"
 								echo "Only recent entries (from the last 5 hours) will be checked" \
 										 >> "$TMPDIR/report" || error "Could not write message about first-time check of journal to report"
-								echo "If you do not wish to check the systemd journal, please see /etc/logcheck/logcheck.logfiles.d/journal.logfiles" \
+								echo "If you do not wish to check the systemd journal, please see %%PREFIX%%/etc/logcheck/logcheck.logfiles.d/journal.logfiles" \
 										 >> "$TMPDIR/report" || error "Could not write message about first-time check of journal to report"
 								offsettime="--since=-5h"
 						fi
@@ -587,7 +587,7 @@ debug "Sourcing - $CONFFILE"
 
 # Now source the config file - before things that should not be changed
 if [ -r "$CONFFILE" ]; then
-		# shellcheck source=/etc/logcheck/logcheck.conf
+		# shellcheck source=%%PREFIX%%/etc/logcheck/logcheck.conf
 		. "$CONFFILE"
 elif [ -f "$CONFFILE" ]; then
 		error  "Config file $CONFFILE could not be read"
