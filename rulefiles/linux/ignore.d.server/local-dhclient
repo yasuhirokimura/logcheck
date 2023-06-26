@@ -4,3 +4,4 @@
 ^([[:alpha:]]{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: RCV: Reply message on [[:alnum:]]+ from [[:xdigit:]:.]+.
 ^([[:alpha:]]{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: DHCPREQUEST for [[:digit:].]+ on [[:alnum:]]+ to [[:digit:].]+ port [[:digit:]]+
 ^([[:alpha:]]{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: Packet received, but nothing done with it.
+^([[:alpha:]]{3} [ :[:digit:]]{11}|[0-9T:.+-]{32}) [._[:alnum:]-]+ dhclient\[[[:digit:]]+\]: RCV: Advertise message on [[:alnum:]]+ from [[:xdigit:]:.]+.
