@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "install" ] || [ "$1" = "upgrade" ]; then
+	if dpkg --compare-versions "$2" lt-nl "1.4.3~" ; then
+		# Update /etc/logcheck/header.txt if it matches a known
+		# shipped version predating stretch to avoid dpkg
+		# complaining about a modified conffile
+		if [ -f "/etc/logcheck/header.txt" ] && [ -f "/usr/share/logcheck/header.txt" ]; then
+			# dbc1e8d136180d247b572f6a19c4e92e (lenny)
+			# a32fc12d69628d96756fd3af3f8b3ecd (squeeze, wheezy, jessie)
+			md5=$(md5sum "/etc/logcheck/header.txt" | awk '{print $1}')
+			if [ "$md5" = "dbc1e8d136180d247b572f6a19c4e92e" ] ||
+			   [ "$md5" = "a32fc12d69628d96756fd3af3f8b3ecd" ]; then
+				cp -p -v /usr/share/logcheck/header.txt /etc/logcheck
+			fi
+		fi
+	fi
+fi
+
+#DEBHELPER#

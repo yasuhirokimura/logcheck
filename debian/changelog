@@ -1,3 +1,11 @@
+logcheck (1.4.3) UNRELEASED; urgency=medium
+
+  * Add logcheck.preinst to upgrade header.txt if it matches a known shipped
+    version predating stretch to avoid dpkg complaining about a modified
+    conffile.  (Closes: #1039591)
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 27 Jun 2023 20:05:42 +0200
+
 logcheck (1.4.2) unstable; urgency=medium
 
   * More explicitly mention the default checking of the systemd journal
