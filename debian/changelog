@@ -1,10 +1,12 @@
-logcheck (1.4.3) UNRELEASED; urgency=medium
+logcheck (1.4.3) unstable; urgency=medium
 
-  * Add logcheck.preinst to upgrade header.txt if it matches a known shipped
-    version predating stretch to avoid dpkg complaining about a modified
-    conffile.  (Closes: #1039591)
+  [Andreas Beckmann]
+  * Add logcheck.preinst to update header.txt if it matches a
+    version shipped in old debian releases (woody-jessie), this avoid
+    dpkg complaining about a modified conffile for people who
+    installed logcheck in jessie or earlier (Closes: #1039591).
 
- -- Andreas Beckmann <anbe@debian.org>  Tue, 27 Jun 2023 20:05:42 +0200
+ -- Mathias Gibbens <gibmat@debian.org>  Tue, 27 Jun 2023 20:05:42 +0200
 
 logcheck (1.4.2) unstable; urgency=medium
 
